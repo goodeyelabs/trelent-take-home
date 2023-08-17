@@ -12,7 +12,7 @@ Your goal for this project is to make the chat functional by integrating with Op
 
 To get started, go ahead and create a public repo on GitHub using this template. Once created and cloned to your machine, you may use a package manager of your choice (we recommend `pnpm` or `yarn`) to install the dependencies and start the project up with the `dev` script. Now would also be a good time to setup your Vercel deployment and make sure you get a successful build. If you don't, contact Calum.
 
-> Make sure to set `OPENAI_API_KEY` in `.env.local` to the API key provided by Calum.
+> Make sure to set `OPENAI_API_KEY` in `.env.local.example` to the API key provided by Calum, and rename the file to be `.env.local`.
 
 From here, you're on your own! We encourage you to use the resources below to help make this project more doable in a short period of time. You are more than welcome to add extra features, improve the design, or change the folder structure to your liking.
 
