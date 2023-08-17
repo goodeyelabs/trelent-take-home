@@ -6,7 +6,9 @@ This test is designed to take less than two hours to complete for the ideal cand
 
 ## Task Description
 
-Your goal for this project is to make the chat functional by integrating with OpenAI, and improve the design to your liking. You may use the method of your choice to do so, and may use the provided API key. We have found that, typically, streaming the response from OpenAI to the user is a good experience. Once completed, you should deploy a fully-functioning version of your project on Vercel.
+Your goal for this project is to make the chat functional by integrating with OpenAI, and improve the design to your liking. The chat should have a streamed response, so that it appears as if the assistant is "typing" to you, as it appears in ChatGPT. You are free to use the method of your choice to do this, and may use the provided OpenAI API key.
+
+Once completed, you should deploy a fully-functioning version of your project on Vercel.
 
 ## Instructions
 
@@ -20,9 +22,9 @@ Once you feel confident and have a working chat app, Send Calum a link to your G
 
 ## Resources
 
-1. [OpenAI docs](https://platform.openai.com/docs/guides/gpt/chat-completions-api)
+1. [OpenAI Chat API docs](https://platform.openai.com/docs/guides/gpt/chat-completions-api)
 2. [Vercel AI SDK](https://sdk.vercel.ai/docs)
-3. [openai-edge](https://github.com/dan-kwiat/openai-edge)
+3. [Vercel Deployment Guide](https://vercel.com/docs/concepts/deployments/overview#git)
 
 ## Project structure
 
