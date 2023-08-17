@@ -1,38 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Trelent take-home
 
-## Getting Started
+The goal of this test is to assess your ability to build a simple NextJS application that uses Tailwind for styling, and which interacts with OpenAI's chat API. Upon successful completion, you should end up with a fully-functioning chat webapp similar to ChatGPT (and maybe even a little faster). This test is designed to take less than two hours to complete for the ideal candidate, however, we are not trying to test speed here! It is not timed, and the important thing we want to evaluate is your process, design decisions, and coding style.
 
-First, run the development server:
+## Task Description
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Your goal for this project is to make the chat functional by integrating with OpenAI, and improve the design to your liking. You may use the method of your choice to do so, and may use the provided API key. We have found that, typically, streaming the response from OpenAI to the user is a good experience. Once completed, you should deploy a fully-functioning version of your project on Vercel.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Resources
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Relevant OpenAI Documentation can be found here: [https://platform.openai.com/docs/guides/gpt/chat-completions-api](https://platform.openai.com/docs/guides/gpt/chat-completions-api)
+Helpful libraries may include:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+1. [Vercel AI SDK](https://sdk.vercel.ai/docs)
+2. [openai-edge](https://github.com/dan-kwiat/openai-edge)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Project structure
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Some parts of the project already exist, such the basic page layout and some initial messages to demo what it looks like. It is a standard NextJS + Tailwind project, thought we opted to use the `pages` router instead of the `app` router. You can find components in `src/components`, all put together in a single page at `src/pages/index.tsx`. Some styling also occurs in `src/pages/_app.tsx`.
 
-## Learn More
+We have left the api directory empty, other than a default `api/hello` route for reference.
 
-To learn more about Next.js, take a look at the following resources:
+## Final thoughts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Thank you for applying to Trelent, and best of luck! You can always reach out to Calum if you have any questions or get stuck.
