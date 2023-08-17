@@ -20,18 +20,25 @@ From here, you're on your own! We encourage you to use the resources below to he
 
 Once you feel confident and have a working chat app, Send Calum a link to your GitHub repo and your Vercel deployment.
 
+## Evaluation
+
+There are four criteria under which you will be evaluated.
+
+1. **Successful completion:** Does the chat work such that one can have a multi-message conversation with GPT-3.5? Is this true in the Vercel deployment?
+2. **Code quality & style:** Is your code clean, readable, and well-structured? Are you using best practices? Is your code adequately documented?
+3. **Design & responsiveness:** Does the chat look good? Is it easy to use? Is it responsive, both to screen size and system dark/light theme? Does it look like a professional product?
+4. **Resourcefulness:** Did you find your own resources to help you complete the project? Were those resources up-to date and relevant?
+
 ## Resources
 
-1. [OpenAI Chat API docs](https://platform.openai.com/docs/guides/gpt/chat-completions-api)
-2. [Vercel AI SDK](https://sdk.vercel.ai/docs)
-3. [Vercel Deployment Guide](https://vercel.com/docs/concepts/deployments/overview#git)
+You are responsible for finding or using your own resources to help you complete this project. However, we have provided details on the project's structure below so that you can get up to speed quickly.
 
 ## Project structure
 
-Some parts of the project already exist, such the basic page layout and some initial messages to demo what it looks like. It is a standard NextJS + Tailwind project, thought we opted to use the `pages` router instead of the `app` router. You can find components in `src/components`, all put together in a single page at `src/pages/index.tsx`. Some styling also occurs in `src/pages/_app.tsx`.
+Some parts of the project already exist, such the basic page layout and some initial messages to demo what it looks like. It is a standard NextJS + Tailwind project, thought we opted to use the `pages` router instead of the `app` router. It is built all in a single page, located at `src/pages/index.tsx` which is itself composed of a few components, located in `src/components`. The `src/styles` directory contains the global styles, which is where we have included Tailwind, and `src/types.ts` contains common types used throughout the project.
 
-We have left the api directory empty, other than a default `api/hello` route for reference.
+We have left the api directory empty excpet for a default route, `api/hello`, for reference purposes.
 
-## Final thoughts
+## Final notes
 
-Once complete, please send Calum your repository and a link to your live vercel deployment. Thank you for applying to Trelent, and best of luck! You can always reach out to Calum if you have any questions or get stuck.
+Once complete, please send Calum your repository and a link to your live vercel deployment. You can always reach out to Calum if you have any questions or get stuck. Thank you for applying to Trelent, and good luck!

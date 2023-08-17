@@ -1,8 +1,13 @@
 import { MessageList } from "@/components/message-list";
 import { NewMessageForm } from "@/components/new-message-form";
+import { MessageType } from "@/types";
 import { useState } from "react";
 
-const initialMessages = [
+/**
+ * The list of messages displayed when the page is first loaded. You may remove or modify it as you wish.
+ * @see src/types.ts
+ */
+const initialMessages: MessageType[] = [
   { role: "user", content: "Hey there, who are you?" },
   {
     role: "assistant",
@@ -21,10 +26,14 @@ const initialMessages = [
   },
 ];
 
-export default function Home() {
-  const [messages, setMessages] = useState(initialMessages);
-  const [newMessage, setNewMessage] = useState("");
+export default function HomePage() {
+  const [messages, setMessages] = useState<MessageType[]>(initialMessages);
+  const [newMessage, setNewMessage] = useState<string>("");
 
+  /**
+   * Sends a message to the assistant.
+   * TODO: Hook up to the OpenAI API.
+   */
   const sendMessage = () => {
     setMessages([...messages, { role: "user", content: newMessage }]);
     setNewMessage("");

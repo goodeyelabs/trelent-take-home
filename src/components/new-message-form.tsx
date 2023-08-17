@@ -2,8 +2,18 @@ import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
 import { Dispatch, SetStateAction } from "react";
 
 export type NewMessageFormProps = {
+  /**
+   * The current value of the new message input field.
+   */
   newMessage: string;
+  /**
+   * Sets the value of the `newMessage` input field.
+   * @param {string} newMessage The new value of the new message input field.
+   */
   setNewMessage: Dispatch<SetStateAction<string>>;
+  /**
+   * Sends the message contained in `newMessage` to the assistant.
+   */
   sendMessage: () => void;
 };
 export const NewMessageForm = (props: NewMessageFormProps) => {

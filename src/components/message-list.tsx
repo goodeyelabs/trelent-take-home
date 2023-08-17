@@ -1,8 +1,13 @@
 import React from "react";
+import { MessageType } from "@/types";
 import { Message } from "./message";
 
 export type MessageListProps = {
-  messages: { role: string; content: string }[];
+  /**
+   * The list of messages to display.
+   * @see src/types.ts
+   */
+  messages: MessageType[];
 };
 export const MessageList = (props: MessageListProps) => {
   const { messages } = props;
