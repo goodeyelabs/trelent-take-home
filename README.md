@@ -32,4 +32,4 @@ We have left the api directory empty, other than a default `api/hello` route for
 
 ## Final thoughts
 
-Thank you for applying to Trelent, and best of luck! You can always reach out to Calum if you have any questions or get stuck.
+Once complete, please send Calum your repository and a link to your live vercel deployment. Thank you for applying to Trelent, and best of luck! You can always reach out to Calum if you have any questions or get stuck.
