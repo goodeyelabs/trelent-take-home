@@ -82,7 +82,7 @@ export function MessagesProvider({ children }: { children: ReactNode }) {
       dispatch(addNewMessage({sessionID: activeSession, content: generatedMessage, role: 'assistant'}))
       setGeneratedMessage('')
     }
-  },[generatedMessage, isGeneratingAnswer])
+  },[generatedMessage, isGeneratingAnswer, dispatch, activeSession])
 
   return (
     <MessagesContext.Provider value={{ messages, isPreparingAnswer, isGeneratingAnswer, addMessage, generateMessage, generatedMessage }}>
