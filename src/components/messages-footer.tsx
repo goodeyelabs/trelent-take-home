@@ -19,7 +19,7 @@ export default function MessageInput() {
     const { addMessage, generateMessage } = useMessages();
 
     const strippedMessages = () => {
-        let output:[] = []
+        let output:any[] = []
 
         sessions[activeSession].messages?.map((msg:any, msg_index:number) => 
             output.push({
