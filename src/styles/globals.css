@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --color-pink-red: #ff2aca;
+  --color-purple: #a537fd;
+  --color-pink: #FF00F7;
+  --color-light-blue: #21C8FF;
+  --color-dark-blue: #1857DC;
+  --color-blue: #1079ef;
+  --color-dark-gray: #131313;
+  --color-darker-gray: #111;
+  --header-height: 3.75rem;
+  --sub-header-height: calc(var(--header-height) * 1.33);
+  --footer-height: calc(var(--header-height) * 1.33);
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+  body {
+    @apply min-h-screen;
+    @apply min-h-screen-ios;
+  }
+}
