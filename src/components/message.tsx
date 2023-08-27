@@ -34,9 +34,11 @@ export function Message({keyProp, role, content, timestamp, typewriter}: Message
         >
         <div className={bubbleOuter}>
             <div className={bubble}>
-              {// eslint-disable-next-line
-              }
-                <div className={bubbleText}><ReactMarkdown children={content ? content : ''} remarkPlugins={[remarkGfm]} /></div>
+                <div className={bubbleText}>
+                  {// eslint-disable-next-line
+                  }
+                  <ReactMarkdown children={content ? content : ''} remarkPlugins={[remarkGfm]} />
+                </div>
             </div>
             <p className='text-xs text-neutral-400/80 dark:text-neutral-500/70 tracking-normal'>
               {
