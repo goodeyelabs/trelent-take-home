@@ -24,56 +24,73 @@ export interface InitialState {
     }
 }
 
+const boilerplateMessages = [
+    {
+        timestamp: getCurrentTimestamp(),
+        role: 'system',
+        content: 'You are a helpful assistant that always responds using markdown. Please call the user by the name \'Stanley\', but not for every response.'
+    },
+    { 
+        timestamp: getCurrentTimestamp(),
+        role: "assistant", 
+        content: 'Hello Stanley, how can I assist you?'
+    },
+]
+
 const initialState: InitialState = {
     data: {
         sessions: [
             {
                 sessionID: 0,
                 messages: [
+                    ...boilerplateMessages,
                     {
                         timestamp: getCurrentTimestamp(),
-                        role: 'system',
-                        content: 'You are a helpful, friendly assistant that responds by rendering markdown. Please call the user by the name \'Stanley\', but not for every response.'
-                      },
-                      { 
+                        role: "user",
+                        content: "What does it mean that Saturn is in opposition right now? Is Saturn in danger of hitting the Earth?",
+                    },
+                    {
                         timestamp: getCurrentTimestamp(),
-                        role: "assistant", 
-                        content: 'Hello Stanley, how can I assist you?'
-                      },
+                        role: "assistant",
+                        content: "When we say that Saturn is in opposition, it means that Saturn and the Sun are on opposite sides of the Earth. This alignment allows for optimal viewing conditions, as Saturn is visible throughout the night, rising in the east as the Sun sets in the west. However, it's important to note that the opposition of Saturn does not have any impact on its distance from Earth or pose any danger of collision. Saturn is located approximately 1.2 billion kilometers away from Earth, and its orbit is well-defined, keeping it at a safe distance. So, there is no need to worry about Saturn hitting the Earth during its opposition or at any other time.",
+                    },
                 ]
             },
+
             {
                 sessionID: 1,
                 messages: [
+                    ...boilerplateMessages,
                     {
                         timestamp: getCurrentTimestamp(),
-                        role: 'system',
-                        content: 'You are a helpful, friendly assistant that responds by rendering markdown. Please call the user by the name \'Stanley\', but not for every response.'
-                      },
-                      { 
+                        role: "user",
+                        content: "Create a list of the 10 best selling movies since 1950, showing the movie title and also including the director and number of Oscars the film won.",
+                    },
+                    {
                         timestamp: getCurrentTimestamp(),
-                        role: "assistant", 
-                        content: 'Hello Stanley, how can I assist you?'
-                      },
+                        role: "assistant",
+                        content: "```-1. Gone with the Wind (1939) - Directed by Victor Fleming, won 8 Oscars. -2. Gone with the Wind (1939) - Directed by Victor Fleming, won 8 Oscars.```"
+                    },
                 ]
             },
             {
                 sessionID: 2,
                 messages: [
+                    ...boilerplateMessages,
                     {
                         timestamp: getCurrentTimestamp(),
-                        role: 'system',
-                        content: 'You are a helpful, friendly assistant that responds by rendering markdown. Please call the user by the name \'Stanley\', but not for every response.'
-                      },
-                      { 
+                        role: "user",
+                        content: "Can you show me a table of the 3 most populous provinces in Canada?",
+                    },
+                    {
                         timestamp: getCurrentTimestamp(),
-                        role: "assistant", 
-                        content: 'Hello Stanley, how can I assist you?'
-                      },
+                        role: "assistant",
+                        content: "Certainly! Here's a table of the 3 most populous provinces in Canada as of my last update in 2021:\n\n| Province         | Population   |\n|------------------|--------------|\n| Ontario          | ~14.7 million|\n| Quebec           | ~8.5 million |\n| British Columbia | ~5.1 million |",
+                    },
                 ]
             },
         ],
-        activeSession: 0,
+        activeSession: 2,
         currentPrompt: '',
     }
 }
@@ -92,11 +109,7 @@ export const sessionsSlice = createSlice({
             state.data.activeSession = state.data.sessions.length
             state.data.sessions.push({
                 sessionID: state.data.sessions.length,
-                messages: [{
-                    message: 'Hello Stanley, how can I help?',
-                    timestamp: getCurrentTimestamp(),
-                    author: 'server'
-                }]
+                messages: boilerplateMessages,
             })
         },
         addNewMessage: (state, action: PayloadAction<{sessionID: number, role: string, content: string}>) => {

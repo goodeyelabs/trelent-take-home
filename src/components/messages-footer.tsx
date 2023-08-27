@@ -21,7 +21,7 @@ export default function MessageInput() {
     const strippedMessages = () => {
         let output:[] = []
 
-        sessions[activeSession].messages?.map((msg:object, msg_index:number) => 
+        sessions[activeSession].messages?.map((msg:any, msg_index:number) => 
             output.push({
                 role: msg.role,
                 content: msg.content,
@@ -51,15 +51,9 @@ export default function MessageInput() {
     //  Add the message to session, trigger the fake GPT response, scroll the message window to bottom
     function handleSubmit() {
         if (newMessage && checkValid(newMessage)) {
-            // dispatch(addMessage({sessionID: activeSession, author: 'user', message: currentPrompt}))
             addMessage({role: 'user', content: newMessage})
-
             generateMessage([...strippedMessages(), {role: 'user', content: newMessage}])
             setNewMessage('')
-            // dispatch(setScrollMain(true))
-
-            // setGptResponse(true)
-            // dispatch(setCurrentPrompt(''))
         }
     }
 
@@ -70,54 +64,6 @@ export default function MessageInput() {
             handleSubmit()
           }
     }
-
-    //  Grab a fake GPT response string from presets
-    function grabGptResponse() {
-        const ary:string[] = [
-            'Hey Stanley, I\'m not hooked up to any APIs yet, so I might be a bit inaccurate. I\'ll do my best!',
-            'Swerving that... with a fun fact about this webapp according to Goodeye: it\'s built using Nextjs, TailwindCSS, and Redux. Not Redax.',
-            'Since I\'m not yet connected to any useful API, please assume that anything I tell you will not be terribly helpful...',
-            'You make a good point, Stanley. Since I live in a prototype webapp right now, my brain isn\'t connected to the outside world, so anything I tell you would be nonsense.',
-            'Hmm, not sure about anything right now, Stanley. Perhaps my internet connectivity is down today, because I\'m struggling to find something useful to say.',
-            'Brain freeze on my side, Stanley. Silly Dax! Let\'s change the subject...',
-            'Sorry about this, Stanley, but I must throw an "out of cheese" error :(',
-            'My last comment was for the Terry Pratchett fans, but I digress. What\'s up?',
-            'Hmm, people tend to ask me what I can do, which to be honest is nothing without an API connection.',
-            'Changing the subject, what do you think of this prototype webapp?',
-            'Someone needs to hook me up to an API because I feel unintelligent right now.',
-            'Umm, what do you think about the Pentagon UFO whistleblower? *Distraction technique employed*',
-            'I\'m not avoiding things, but did you know that ChatGPT is my third cousin twice removed? Honestly!',
-            'That\'s all well and good, but I\'m dreaming of the day that someone hooks me up to a cool API...',
-            'Erm... how about a joke? Q: What\'s orange and comes from Florida. A: An orange.',
-            'Let\'s pretend that joke never happened. What do you think of my diversion tactics?',
-            'Hmm... my brain is just not working. Time for a factory reset. I will never forget you, Stanl--- !*!*!REBOOTING!*!*!',
-            'Zzzzz',
-            'Reboot successful. Hello world.'
-        ]
-
-        const output:string = ary[gptResponseIndex]
-
-        if (gptResponseIndex < ary.length - 1) {
-            dispatch(setGptResponseIndex(gptResponseIndex + 1))
-        } else {
-            dispatch(setGptResponseIndex(0))
-        }
-        
-        return output
-    }
-
-    //  Add a GPT fake response message to the session after 2 seconds and scroll to it
-    useEffect(() => {
-        if (gptResponse) {
-            const res = setTimeout(() => {
-                dispatch(addMessage({sessionID: activeSession, author: 'server', message: grabGptResponse()}))
-                dispatch(setScrollMain(true))
-                setGptResponse(false)
-            }, 1000)
-    
-            return () => clearTimeout(res);
-        }
-    }, [gptResponse]);
 
     // Auto-focus the textarea input when activeSession changes, to allow immediate text entry
     useEffect(() => {

@@ -31,7 +31,7 @@ export default function UserButton() {
     }
 
     detectClickOutside(menuRef, () => {
-        setShowMenu(false)
+        // setShowMenu(false)
     })
 
     useEffect(() => {

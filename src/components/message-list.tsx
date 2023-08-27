@@ -1,6 +1,5 @@
 import { useAppDispatch, useAppSelector } from '@/redux/hooks'
 import { formatDate, orderSessionsByCreateDate, getSessionMessages } from '@/tools/utils'
-import { setActiveChat } from '@/redux/sessionsReducer'
 import { useEffect, useRef, useState } from 'react'
 import { setScrollMain } from '@/redux/commonReducer'
 import { useMessages } from '@/hooks/useMessages'
@@ -11,15 +10,14 @@ export default function MessageList() {
     const { scrollMain } = useAppSelector(state => state.common.data)
     const mainRef = useRef<HTMLDivElement>(null); 
     const dispatch = useAppDispatch();
-
     const list:any = sessions
     const messages = list[activeSession].messages
-
-    const { generatedMessage, isPreparingAnswer, isGeneratingAnswer } = useMessages();
+    const { generatedMessage } = useMessages();
+    const [recentGeneratedResponse, setRecentGeneratedResponse] = useState('')
 
     useEffect(() => {
         dispatch(setScrollMain(true))
-    },[])
+    },[messages, generatedMessage])
 
     useEffect(() => {
         if (scrollMain) {
@@ -33,7 +31,7 @@ export default function MessageList() {
             <div className='grid py-0 pb-6 lg:pb-3 items-start content-start w-full px-5 sm:px-8 md:px-12 lg:px-16 xl:px-32 bg-white dark:bg-redax'>
                 {
                     messages.map((m:any, m_idx:number) => {
-                        if (m.role === 'assistant' && !generatedMessage) {
+                        if (m.role === 'assistant' && m.content !== generatedMessage) {
                             return (
                                 <div key={m_idx}>
                                     <Message timestamp={m.timestamp} keyProp={m_idx} content={m.content} role={'assistant'} />

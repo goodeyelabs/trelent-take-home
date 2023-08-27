@@ -2,6 +2,7 @@ import MessagesFooter from "@/components/messages-footer";
 import MessageList from "@/components/message-list";
 import Header from "@/components/header";
 import MessagesHeader from "@/components/messages-header";
+import SideMenu from "@/components/sidemenu";
 
 export default function HomePage() {
   return (
@@ -10,7 +11,7 @@ export default function HomePage() {
             <Header />
         </div>
         <div className="z-10 hidden md:grid row-start-2 shadow-[1px_0_0_0] shadow-neutral-200/80 dark:shadow-redax-lighter bg-blue-25 dark:bg-redax-medium overflow-y-auto">
-            {/* <SideMenu /> */}
+            <SideMenu />
         </div>
         <div className="z-0 grid row-start-2 shadow-[1px_0_0_0] shadow-neutral-200 bg-white dark:bg-redax overflow-y-auto">
             <div className="grid grid-rows-[1fr_auto]">
@@ -24,7 +25,6 @@ export default function HomePage() {
                 </div>
                 <div className="grid sticky bottom-0 bg-blue-25">
                     <MessagesFooter />
-                    {/* <NewMessageForm /> */}
                 </div>
             </div>
         </div>

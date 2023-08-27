@@ -31,7 +31,7 @@ export default function Conversations({ closeOverlay }: { closeOverlay?:any}) {
                         >
                             <div className={`grid border-t py-6 px-3 ${activeSession === c.sessionID || activeSession === c.sessionID + 1 ? 'border-blue-50 dark:border-redax-light' : 'border-neutral-300/50 dark:border-redax-lighter border-dashed'}`}>
                                 <p className={`line-clamp-3 text-sm font-base text-gray-950 dark:text-stone-300/90 leading-normal md:leading-relaxed tracking-slight ${activeSession === c.sessionID ? 'text-neutral-950 dark:text-stone-200' : ''}`}>
-                                    {(s[1]) ? s[1].message : 'New chat session'}
+                                    {(s[2]) ? s[2].content : 'New chat session'}
                                 </p>
                             </div>
                         </div>

@@ -1,10 +1,9 @@
 import detectClickOutside from "@/tools/detectClickOutside";
-import { ComputerDesktopIcon, LockClosedIcon, MoonIcon, SunIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { ComputerDesktopIcon, MoonIcon, SunIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useTheme } from "next-themes";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 export default function DarkModeButton() {
-    const [mounted, setMounted] = useState(false)
     const [showMenu, setShowMenu] = useState(false)
     const { theme, setTheme, systemTheme } = useTheme()
     const menuRef = useRef<HTMLDivElement>(null); 
@@ -19,17 +18,15 @@ export default function DarkModeButton() {
     }
 
     detectClickOutside(menuRef, () => {
-        setShowMenu(false)
+        // if (showMenu) {
+        //     setShowMenu(false)
+        // }
     })
-
-    useEffect(() => {
-        setMounted(true)
-    },[])
 
     return (
         <div className='grid relative z-20 select-none'>
             <div 
-                onClick={() => mounted ? handleShowMenu() : null}
+                onClick={handleShowMenu}
                 className='w-auto h-10 grid place-content-center dark:duration-0 text-neutral-700 hover:text-neutral-950 dark:text-neutral-300 dark:hover:text-neutral-200 bg-neutral-100/50 hover:bg-neutral-200/50 dark:bg-neutral-950 dark:hover:bg-neutral-800 rounded-full px-3 cursor-pointer'
             >
                 {
@@ -37,7 +34,7 @@ export default function DarkModeButton() {
                         <XMarkIcon className='w-5 h-5' />
                 }
                 {
-                    !showMenu && mounted &&
+                    !showMenu &&
                         <>
                             {
                                 theme === 'light' &&
@@ -58,10 +55,6 @@ export default function DarkModeButton() {
                             }
                         </>
                 }
-                {
-                    !mounted &&
-                        <SunIcon className='w-5 h-5' />
-                }
                 
             </div>
             {
@@ -70,7 +63,7 @@ export default function DarkModeButton() {
                         {/* Dark mode */}
                         <div 
                             className={`w-auto h-10 grid grid-flow-col gap-3 items-center justify-start ${theme === 'dark' ? 'text-blue-500 dark:text-blue-400' : 'text-gray-800 dark:text-neutral-300' } bg-neutral-100/50 hover:bg-neutral-200/50 dark:bg-redax-medium dark:hover:bg-redax-dark cursor-pointer rounded-full px-3`}
-                            onClick={() => mounted ? handleClick('dark') : null}
+                            onClick={() => handleClick('dark')}
                         >
                             <MoonIcon className='w-5 h-5' />
                             <p className="text-sm">Dark</p>
@@ -78,7 +71,7 @@ export default function DarkModeButton() {
                         {/* Light mode */}
                         <div 
                             className={`w-auto h-10 grid grid-flow-col gap-3 items-center justify-start ${theme === 'light' ? 'text-blue-500 dark:text-blue-400' : 'text-gray-800 dark:text-neutral-300' } bg-neutral-100/50 hover:bg-neutral-200/50 dark:bg-redax-medium dark:hover:bg-redax-dark cursor-pointer rounded-full px-3`}
-                            onClick={() => mounted ? handleClick('light') : null}
+                            onClick={() => handleClick('light')}
                         >
                             <SunIcon className='w-5 h-5' />
                             <p className="text-sm">Light</p>
@@ -86,7 +79,7 @@ export default function DarkModeButton() {
                         {/* System mode (auto) */}
                         <div
                             className={`w-auto h-10 grid grid-flow-col gap-3 items-center justify-start ${theme === 'system' ? 'text-blue-500 dark:text-blue-400' : 'text-gray-800 dark:text-neutral-300' } bg-neutral-100/50 hover:bg-neutral-200/50 dark:bg-redax-medium dark:hover:bg-redax-dark cursor-pointer rounded-full px-3`}
-                            onClick={() => mounted ? handleClick('system') : null}
+                            onClick={() => handleClick('system')}
                         >
                             <ComputerDesktopIcon className='w-5 h-5' />
                             <p className="text-sm">System</p>
