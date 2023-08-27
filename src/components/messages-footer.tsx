@@ -1,23 +1,35 @@
 import { useEffect, useState, useRef } from 'react'
 import { useAppDispatch, useAppSelector } from '@/redux/hooks'
-import { addMessage, setCurrentPrompt } from '@/redux/sessionsReducer'
 import { setScrollMain, setGptResponseIndex, setPrivacy } from '@/redux/commonReducer'
 import Button from './button'
 import { ChatBubbleLeftIcon, Cog6ToothIcon, LockClosedIcon, LockOpenIcon } from '@heroicons/react/24/outline'
 import Overlay from './overlay'
 import Config from '@/menus/config'
 import TextareaAutosize from 'react-textarea-autosize'
-import { useMessages } from '@/hooks/use-messages'
+import { useMessages } from '@/hooks/useMessages'
 
 export default function MessageInput() {   
     const textareaRef = useRef<HTMLTextAreaElement>(null); 
     const dispatch = useAppDispatch();
-    const { currentPrompt, activeSession } = useAppSelector(state => state.sessions.data)
+    const { activeSession, sessions } = useAppSelector(state => state.sessions.data)
     const { gptResponseIndex, privacy, scrollMain } = useAppSelector(state => state.common.data)
     const [gptResponse, setGptResponse] = useState(false)
 
     const [newMessage, setNewMessage ] = useState('');
-    const { messages, addMessage, generateMessage } = useMessages();
+    const { addMessage, generateMessage } = useMessages();
+
+    const strippedMessages = () => {
+        let output:[] = []
+
+        sessions[activeSession].messages?.map((msg:object, msg_index:number) => 
+            output.push({
+                role: msg.role,
+                content: msg.content,
+            })
+        )
+
+        return output
+    }
 
     //  Record the current value of the message input box before submission
     function handleMessageChange(val:string) {
@@ -38,12 +50,14 @@ export default function MessageInput() {
 
     //  Add the message to session, trigger the fake GPT response, scroll the message window to bottom
     function handleSubmit() {
-        if (currentPrompt && checkValid(newMessage)) {
+        if (newMessage && checkValid(newMessage)) {
             // dispatch(addMessage({sessionID: activeSession, author: 'user', message: currentPrompt}))
             addMessage({role: 'user', content: newMessage})
-            generateMessage([...messages, {role: 'user', content: newMessage}])
+
+            generateMessage([...strippedMessages(), {role: 'user', content: newMessage}])
             setNewMessage('')
-            dispatch(setScrollMain(true))
+            // dispatch(setScrollMain(true))
+
             // setGptResponse(true)
             // dispatch(setCurrentPrompt(''))
         }

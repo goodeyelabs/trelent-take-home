@@ -1,4 +1,4 @@
-import { useMessages } from "@/hooks/use-messages";
+import { useMessages } from "@/hooks/useMessages";
 import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 

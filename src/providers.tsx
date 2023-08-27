@@ -2,7 +2,7 @@ import {ThemeProvider} from 'next-themes'
 import { Provider } from 'react-redux'
 import { store, persistor } from '@/redux/store'
 import { PersistGate } from 'redux-persist/integration/react'
-import { MessagesProvider } from "@/hooks/use-messages";
+import { MessagesProvider } from "@/hooks/useMessages";
 
 type providerProps = {
     children: React.ReactNode

@@ -1,5 +1,8 @@
 import { MessageType } from '@/types'
 import { ReactNode, createContext, useContext, useEffect, useState } from 'react'
+import { addNewMessage } from '@/redux/sessionsReducer'
+import { setScrollMain } from '@/redux/commonReducer'
+import { useAppDispatch, useAppSelector } from '@/redux/hooks'
 
 interface ContextProps {
   messages: MessageType[]
@@ -28,9 +31,12 @@ export function MessagesProvider({ children }: { children: ReactNode }) {
   const [isPreparingAnswer, setIsPreparingAnswer] = useState(false)
   const [isGeneratingAnswer, setisGeneratingAnswerAnswer] = useState(false);
   const [generatedMessage, setGeneratedMessage] = useState<string>("");
+  const { activeSession } = useAppSelector(state => state.sessions.data)
+  const { scrollMain } = useAppSelector(state => state.common.data)
+  const dispatch = useAppDispatch()
 
   const addMessage = (message:MessageType) => {
-    setMessages([...messages, message])
+    dispatch(addNewMessage({sessionID: activeSession, content: message.content, role: message.role}))
   }
 
   const generateMessage = async (messageList:MessageType[]) => {
@@ -73,13 +79,7 @@ export function MessagesProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (generatedMessage && !isGeneratingAnswer) {
-      setMessages([
-        ...messages,
-        {
-          role: 'assistant',
-          content: generatedMessage
-        }
-      ])
+      dispatch(addNewMessage({sessionID: activeSession, content: generatedMessage, role: 'assistant'}))
       setGeneratedMessage('')
     }
   },[generatedMessage, isGeneratingAnswer])
