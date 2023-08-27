@@ -17,14 +17,14 @@ export default function MessageList() {
 
     useEffect(() => {
         dispatch(setScrollMain(true))
-    },[messages, generatedMessage])
+    },[messages, generatedMessage, dispatch])
 
     useEffect(() => {
         if (scrollMain) {
             mainRef?.current?.scrollIntoView()
             dispatch(setScrollMain(false))
         }
-    },[scrollMain])
+    },[scrollMain, dispatch])
 
     if (list[activeSession]) {
         return (
