@@ -1,14 +1,12 @@
 import { MessageType } from "@/types";
-import { SparklesIcon, UserIcon } from "@heroicons/react/24/outline";
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
 export type MessageProps = {
-  /**
-   * The message to display.
-   * @see src/types.ts
-   */
   message: MessageType;
 };
-export const Message = (props: MessageProps) => {
+
+export function Message(props: MessageProps) {
   const { message } = props;
 
   return (
@@ -22,13 +20,13 @@ export const Message = (props: MessageProps) => {
         ) : (
           <>
             <span className="sr-only">Message from bot</span>
-            <p className="text-gray-500 dark:text-gray-300">Bot</p>
+            <p className="text-gray-500 dark:text-gray-300">ChatGPT</p>
           </>
         )}
       </div>
 
       {/* Maybe a non-plaintext format would be a bit nicer to read? */}
-      <p className="grow">{message.content}</p>
+      <div><ReactMarkdown children={message ? message.content : ''} remarkPlugins={[remarkGfm]} /></div>
     </div>
   );
 };
