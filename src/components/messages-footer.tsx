@@ -5,7 +5,7 @@
 import { useEffect, useState, useRef } from 'react'
 import { useAppDispatch, useAppSelector } from '@/redux/hooks'
 import Button from './button'
-import { ChatBubbleLeftIcon, Cog6ToothIcon } from '@heroicons/react/24/outline'
+import { BeakerIcon, ChatBubbleLeftIcon } from '@heroicons/react/24/outline'
 import Overlay from './overlay'
 import Config from '@/menus/config'
 import TextareaAutosize from 'react-textarea-autosize'
@@ -106,7 +106,7 @@ export default function MessageInput() {
       <div className='grid'>
         <Overlay overlayType='popup' title='ChatGPT configuration' content={<Config />}>
           <Button
-            icon={<Cog6ToothIcon />}
+            icon={<BeakerIcon />}
             text='Config'
           />
         </Overlay>
