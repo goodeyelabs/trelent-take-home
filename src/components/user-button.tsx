@@ -29,7 +29,7 @@ export default function UserButton({ mode }: { mode?: string }) {
   }
 
   const handleSignOut = () => {
-    dispatch(setAuth(false))
+    alert('This is a demo account, so sign out is disabled. You can press the \'Reset data\' button in this Settings menu to reset the app back to factory settings, therefore removing any and all chats/messages you have created with ChatGPT')
   }
 
   const handleShowMenu = () => {
@@ -44,7 +44,7 @@ export default function UserButton({ mode }: { mode?: string }) {
           <div ref={menuRef} className='grid w-[160px] gap-2 absolute top-11 right-0 py-3 animate-pop-up-from-bottom bg-white dark:bg-redax-light px-3 border border-neutral-200 dark:border-redax-lighter shadow-sm rounded-[10px]'>
             {/* Sign out */}
             <div
-              className={`w-auto h-10 grid grid-flow-col gap-3 items-center justify-start ${theme === 'dark' ? 'text-blue-500 dark:text-blue-400' : 'text-gray-800 dark:text-neutral-300'} bg-neutral-100/50 hover:bg-neutral-200/50 dark:bg-redax-medium dark:hover:bg-redax-dark cursor-pointer rounded-full px-3`}
+              className='w-auto h-10 grid grid-flow-col gap-3 items-center justify-start text-gray-800 dark:text-neutral-300 bg-neutral-100/50 hover:bg-neutral-200/50 dark:bg-redax-medium dark:hover:bg-redax-dark cursor-pointer rounded-full px-3'
               onClick={handleSignOut}
             >
               <UserIcon className='w-5 h-5' />
@@ -52,7 +52,7 @@ export default function UserButton({ mode }: { mode?: string }) {
             </div>
             {/* Reset demo data */}
             <div
-              className={`w-auto h-10 grid grid-flow-col gap-3 items-center justify-start ${theme === 'light' ? 'text-blue-500 dark:text-blue-400' : 'text-gray-800 dark:text-neutral-300'} bg-neutral-100/50 hover:bg-neutral-200/50 dark:bg-redax-medium dark:hover:bg-redax-dark cursor-pointer rounded-full px-3`}
+              className='w-auto h-10 grid grid-flow-col gap-3 items-center justify-start text-gray-800 dark:text-neutral-300 bg-neutral-100/50 hover:bg-neutral-200/50 dark:bg-redax-medium dark:hover:bg-redax-dark cursor-pointer rounded-full px-3'
               onClick={handleReset}
             >
               <ArrowPathIcon className='w-5 h-5' />
