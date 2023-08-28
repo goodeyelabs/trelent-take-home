@@ -1,6 +1,9 @@
 
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
+// 
+// Helper states/utilities
+//
 
 export interface InitialState {
     data: {

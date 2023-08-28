@@ -8,6 +8,10 @@ import Config from '@/menus/config'
 import TextareaAutosize from 'react-textarea-autosize'
 import { useMessages } from '@/hooks/useMessages'
 
+//
+// The important bit! Create prompts to be sent to the OpenAI api. Auto-height the textarea based on input
+//
+
 export default function MessageInput() {   
     const textareaRef = useRef<HTMLTextAreaElement>(null); 
     const dispatch = useAppDispatch();
@@ -87,16 +91,16 @@ export default function MessageInput() {
                     </TextareaAutosize>
                 </div>
             </div>
-            <div className='grid'>
+            {/* <div className='grid'>
                 <Button 
                     icon={privacy ? <LockClosedIcon /> : <LockOpenIcon />} 
                     text={privacy ? 'Privacy On' : 'Privacy Off'}
                     onClick={() => dispatch(privacy ? setPrivacy(false) : setPrivacy(true))}
                     customClass={`${!privacy ? 'bg-red-100 text-red-400 dark:text-red-400' : ''}`}
                 />    
-            </div>
+            </div> */}
             <div className='grid'>
-                <Overlay overlayType='popup' title='Entity redaction' content={<Config />}>
+                <Overlay overlayType='popup' title='ChatGPT configuration' content={<Config />}>
                     <Button 
                         icon={<Cog6ToothIcon />} 
                         text='Config' 

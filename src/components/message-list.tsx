@@ -5,6 +5,10 @@ import { setScrollMain } from '@/redux/commonReducer'
 import { useMessages } from '@/hooks/useMessages'
 import { Message } from './message'
 
+//
+//  Pull all messages for the active chat session
+//
+
 export default function MessageList() {
     const { activeSession, sessions } = useAppSelector(state => state.sessions.data)
     const { scrollMain } = useAppSelector(state => state.common.data)
@@ -12,8 +16,7 @@ export default function MessageList() {
     const dispatch = useAppDispatch();
     const list:any = sessions
     const messages = list[activeSession].messages
-    const { generatedMessage } = useMessages();
-    const [recentGeneratedResponse, setRecentGeneratedResponse] = useState('')
+    const { generatedMessage, isPreparingAnswer } = useMessages();
 
     useEffect(() => {
         dispatch(setScrollMain(true))
@@ -48,9 +51,14 @@ export default function MessageList() {
                         return null
                     })    
                 }
+                {/* To achieve the live typewriter effect, mock the assistant bubble to show live input, before then hiding it and allowing the redux message entry to seamlessly show instead */}
                 {
                     generatedMessage &&
                         <Message content={generatedMessage} role={'assistant'} typewriter={'ChatGPT is typing'} />
+                }
+                {
+                    isPreparingAnswer && !generatedMessage &&
+                        <Message content={"..."} role={'assistant'} typewriter={'ChatGPT is thinking'} />
                 }
                 {/* Next div is needed for scrollMain to work */}
                 <div ref={mainRef}></div>

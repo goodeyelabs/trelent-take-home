@@ -4,6 +4,10 @@ import Header from "@/components/header";
 import MessagesHeader from "@/components/messages-header";
 import SideMenu from "@/components/sidemenu";
 
+//
+// Main layout view for whole app
+//
+
 export default function HomePage() {
   return (
     <div className="grid grid-rows-[3.75rem_1fr] grid-cols-[1fr] md:grid-cols-[minmax(auto,300px)_1fr] lg:grid-cols-[minmax(auto,380px)_1fr] h-screen h-screen-ios">

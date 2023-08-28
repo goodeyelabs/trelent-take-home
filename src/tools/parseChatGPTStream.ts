@@ -4,11 +4,14 @@ export async function ChatGPTStream(payload:any) {
   const encoder = new TextEncoder();
   const decoder = new TextDecoder();
 
+  //
+  // Post to OpenAI endpoint, sending all messages at the session level, including the active chat query from the user
+  //
 
   const res = await fetch("https://api.openai.com/v1/chat/completions", {
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${process.env.OPENAI_API_KEY ?? "FOO"}`,
+      Authorization: `Bearer ${process.env.OPENAI_API_KEY ?? ""}`,
     },
     method: "POST",
     body: JSON.stringify(payload),
@@ -35,11 +38,9 @@ export async function ChatGPTStream(payload:any) {
         }
       }
 
-     // stream response (SSE) from OpenAI may be fragmented into multiple chunks
-     // this ensures we properly read chunks & invoke an event for each SSE event stream
+     // SSE streaming chunk processing
      const parser = createParser(onParse);
 
-      // https://web.dev/streams/#asynchronous-iteration
       for await (const chunk of res.body as any) {
         parser.feed(decoder.decode(chunk));
       }

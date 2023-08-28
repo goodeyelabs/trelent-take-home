@@ -1,7 +1,6 @@
 import { MessageType } from '@/types'
 import { ReactNode, createContext, useContext, useEffect, useState } from 'react'
 import { addNewMessage } from '@/redux/sessionsReducer'
-import { setScrollMain } from '@/redux/commonReducer'
 import { useAppDispatch, useAppSelector } from '@/redux/hooks'
 
 interface ContextProps {
@@ -13,32 +12,24 @@ interface ContextProps {
   isGeneratingAnswer: boolean
 }
 
-const initialMessages: MessageType[] = [
-  {
-    role: 'system',
-    content: 'You are a helpful, friendly assistant that responds by rendering markdown. Please call the user by the name \'Stanley\', but not for every response.'
-  },
-  { 
-    role: "assistant", 
-    content: 'Hello Stanley, how can I assist you?'
-  },
-];
-
 const MessagesContext = createContext<Partial<ContextProps>>({})
 
+//
+// Creates a hook for any component to plug into chat message actions, such as creating new messages within the active chat session
+//
+
 export function MessagesProvider({ children }: { children: ReactNode }) {
-  const [messages, setMessages] = useState(initialMessages)
   const [isPreparingAnswer, setIsPreparingAnswer] = useState(false)
   const [isGeneratingAnswer, setisGeneratingAnswerAnswer] = useState(false);
   const [generatedMessage, setGeneratedMessage] = useState<string>("");
   const { activeSession } = useAppSelector(state => state.sessions.data)
-  const { scrollMain } = useAppSelector(state => state.common.data)
   const dispatch = useAppDispatch()
 
   const addMessage = (message:MessageType) => {
     dispatch(addNewMessage({sessionID: activeSession, content: message.content, role: message.role}))
   }
 
+  // Build body parameter to send to internal api route (/createStream) for pushing to OpenAI
   const generateMessage = async (messageList:MessageType[]) => {
     setGeneratedMessage("");
     setIsPreparingAnswer(true);
@@ -55,6 +46,7 @@ export function MessagesProvider({ children }: { children: ReactNode }) {
       throw new Error(response.statusText);
     }
 
+    // Since OpenAI returns a streamed response, we need to parse chunks with EventSource
     const data = response.body;
     if (!data) {
       return;
@@ -85,7 +77,7 @@ export function MessagesProvider({ children }: { children: ReactNode }) {
   },[generatedMessage, isGeneratingAnswer, dispatch, activeSession])
 
   return (
-    <MessagesContext.Provider value={{ messages, isPreparingAnswer, isGeneratingAnswer, addMessage, generateMessage, generatedMessage }}>
+    <MessagesContext.Provider value={{ isPreparingAnswer, isGeneratingAnswer, addMessage, generateMessage, generatedMessage }}>
       {children}
     </MessagesContext.Provider>
   )

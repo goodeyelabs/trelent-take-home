@@ -10,6 +10,10 @@ type overlayProps = {
     title?: string,
 }
 
+//
+// Custom overlay functionality, including drawers and modal popups
+//
+
 export default function Overlay({ children, content, overlayType, title }:overlayProps) {
     const [overlayIsOpen, setOverlayIsOpen] = useState(false);
     const [overlayIsClosing, setOverlayIsClosing] = useState(false);

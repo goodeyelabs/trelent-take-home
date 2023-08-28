@@ -30,6 +30,7 @@ export default function UserButton() {
         setShowMenu(!showMenu)
     }
 
+    // TODO: investigate why clicking outside the popup menu doesn't work properly (currently disabled)
     detectClickOutside(menuRef, () => {
         // setShowMenu(false)
     })

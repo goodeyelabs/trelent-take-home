@@ -1,6 +1,10 @@
 
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
+//
+// Define demo data, default initial data, and various message CRUD actions
+//
+
 function getCurrentTimestamp () {
     return Date.now() / 1000
 }
@@ -64,12 +68,13 @@ const initialState: InitialState = {
                     {
                         timestamp: getCurrentTimestamp(),
                         role: "user",
-                        content: "Create a list of the 10 best selling movies since 1950, showing the movie title and also including the director and number of Oscars the film won.",
+                        content: "Can you help me build a list of todo items I should do tomorrow?",
                     },
                     {
                         timestamp: getCurrentTimestamp(),
                         role: "assistant",
-                        content: "```-1. Gone with the Wind (1939) - Directed by Victor Fleming, won 8 Oscars. -2. Gone with the Wind (1939) - Directed by Victor Fleming, won 8 Oscars.```"
+                        content: "Yes, Stanley, I can help with this. Tell my what you would like to achieve tomorrow and I will create some useful todo items to help you get there."
+                        
                     },
                 ]
             },

@@ -8,6 +8,10 @@ type providerProps = {
     children: React.ReactNode
 }
 
+//
+// Add various functions via middleware wrappers, such as persisting redux state between sessions
+//
+
 export default function Providers({ children }:providerProps) {
     return (
         <Provider store={store}>

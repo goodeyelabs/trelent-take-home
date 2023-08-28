@@ -10,6 +10,9 @@ export type MessageProps = {
   typewriter?: string,
 };
 
+//
+// Build the individual chat bubbles for the chat session message list, differentiating between assistant and user bubbles
+
 export function Message({keyProp, role, content, timestamp, typewriter}: MessageProps) {
   let bubbleWrap = 'grid px-2.5 md:px-3 xl:px-4'
   let bubbleOuter = 'grid gap-2 w-[90%] place-self-start justify-start justify-items-start py-4'
@@ -43,7 +46,7 @@ export function Message({keyProp, role, content, timestamp, typewriter}: Message
             <p className='text-xs text-neutral-400/80 dark:text-neutral-500/70 tracking-normal'>
               {
                 typewriter &&
-                  <span className='font-base'>ChatGPT is typing</span>
+                  <span className='font-base'>{typewriter}</span>
               }
               {
                 !typewriter &&

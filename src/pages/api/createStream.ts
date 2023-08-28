@@ -5,6 +5,11 @@ export const config = {
   runtime: "edge",
 };
 
+
+//
+// Prepare payload to post to OpenAI chat endpoint
+//
+
 const handler = async (req: Request): Promise<Response> => {
     const { messageList } = (await req.json()) as {
         messageList?: MessageType[];
@@ -18,7 +23,7 @@ const handler = async (req: Request): Promise<Response> => {
         frequency_penalty: 0,
         presence_penalty: 0,
         max_tokens: 1000,
-        stream: true,
+        stream: true, // important, if set to false, we need to not use eventsource for streaming
         n: 1,
     };
 
