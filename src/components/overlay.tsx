@@ -1,7 +1,10 @@
-'use client'
+//  ======
+//  Custom overlay functionality, including drawers and modal popups. Uses react portal and a timed removal to allow graceful exit animations
+//  ======
+
 import React, { useState, useEffect, ReactElement } from 'react'
-import { createPortal } from 'react-dom';
-import { XMarkIcon } from '@heroicons/react/24/solid';
+import { createPortal } from 'react-dom'
+import { XMarkIcon } from '@heroicons/react/24/solid'
 
 type overlayProps = {
     content: ReactElement,
@@ -10,22 +13,21 @@ type overlayProps = {
     title?: string,
 }
 
-//
-// Custom overlay functionality, including drawers and modal popups
-//
+export default function Overlay({ children, content, overlayType, title }: overlayProps) {
+    const [overlayIsOpen, setOverlayIsOpen] = useState(false)
+    const [overlayIsClosing, setOverlayIsClosing] = useState(false)
+    const [isMounted, setIsMounted] = useState(false)
 
-export default function Overlay({ children, content, overlayType, title }:overlayProps) {
-    const [overlayIsOpen, setOverlayIsOpen] = useState(false);
-    const [overlayIsClosing, setOverlayIsClosing] = useState(false);
-    const [isMounted, setIsMounted] = useState(false);
+    //  closeOverlay function is passed to the child components of the overlay to allow them to close the parent if needed
 
     const newContent = React.cloneElement(
         content,
-        {closeOverlay: closeOverlay}
+        { closeOverlay: closeOverlay }
     )
 
     function Content() {
-        switch(overlayType) {
+        //  TODO: make more DRY
+        switch (overlayType) {
             case 'drawer-right':
                 return (
                     <div className={`${!overlayIsClosing ? 'animate-slide-in-from-right' : 'animate-slide-out-to-right'} grid transform-gpu z-20 w-[95%] sm:w-[450px] h-screen h-screen-ios overflow-y-auto bg-white dark:bg-redax justify-self-end shadow-xl grid-rows-[auto_1fr] items-start`}>
@@ -65,7 +67,7 @@ export default function Overlay({ children, content, overlayType, title }:overla
                     <p className='text-xl text-gray-900 dark:text-neutral-300 font-bold tracking-slight truncate'>{title}</p>
                 </div>
                 <div className='grid place-content-center'>
-                    <XMarkIcon onClick={() => closeOverlay()} className='x-6 h-6 text-zinc-900 dark:text-neutral-300 cursor-pointer hover:text-blue-400'/>
+                    <XMarkIcon onClick={() => closeOverlay()} className='x-6 h-6 text-zinc-900 dark:text-neutral-300 cursor-pointer hover:text-blue-400' />
                 </div>
             </div>
         )
@@ -78,7 +80,7 @@ export default function Overlay({ children, content, overlayType, title }:overla
                     <p className='truncate text-zinc-800 dark:text-neutral-300 font-bold text-xl tracking-tight'>{title}</p>
                 </div>
                 <div className='grid place-content-center'>
-                    <XMarkIcon onClick={() => closeOverlay()} className='x-6 h-6 text-zinc-900 dark:text-neutral-300 cursor-pointer hover:text-blue-40'/>
+                    <XMarkIcon onClick={() => closeOverlay()} className='x-6 h-6 text-zinc-900 dark:text-neutral-300 cursor-pointer hover:text-blue-40' />
                 </div>
             </div>
         )
@@ -94,32 +96,32 @@ export default function Overlay({ children, content, overlayType, title }:overla
     }
 
     function closeOverlay() {
-        setOverlayIsClosing(true);
+        setOverlayIsClosing(true)
     }
-  
+
     useEffect(() => {
-      if (overlayIsClosing) {
-          const timer = setTimeout(() => {
-              setOverlayIsOpen(false);
-              setOverlayIsClosing(false);
-          }, 250)
-  
-          return () => clearTimeout(timer);
-      }
-    }, [overlayIsClosing]);
+        if (overlayIsClosing) {
+            const timer = setTimeout(() => {
+                setOverlayIsOpen(false)
+                setOverlayIsClosing(false)
+            }, 250)
+
+            return () => clearTimeout(timer)
+        }
+    }, [overlayIsClosing])
 
     useEffect(() => {
         function handleEsc(event: any) {
-            if (event.keyCode === 27) closeOverlay();
+            if (event.keyCode === 27) closeOverlay()
         }
-        window.addEventListener('keydown', handleEsc);
-  
-        return () => window.removeEventListener('keydown', handleEsc);
-    },[]);
+        window.addEventListener('keydown', handleEsc)
+
+        return () => window.removeEventListener('keydown', handleEsc)
+    }, [])
 
     useEffect(() => {
-        setIsMounted(true);
-    },[setIsMounted])
+        setIsMounted(true)
+    }, [setIsMounted])
 
     if (isMounted) {
         return (
@@ -141,6 +143,6 @@ export default function Overlay({ children, content, overlayType, title }:overla
     return (
         <>
             {children}
-        </>    
+        </>
     )
 }

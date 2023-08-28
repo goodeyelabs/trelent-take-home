@@ -1,3 +1,7 @@
+//  ======
+//  Redux store, with added redux-persist local storage functionality
+//  ======
+
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import sessionsReducer from "./sessionsReducer";
 import commonReducer from "./commonReducer";
@@ -5,19 +9,19 @@ import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
 const persistConfig = {
-    key: 'root',
-    storage,
+  key: 'root',
+  storage,
 }
 
-const rootReducer = combineReducers({ 
-    sessions: sessionsReducer,
-    common: commonReducer,
+const rootReducer = combineReducers({
+  sessions: sessionsReducer,
+  common: commonReducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
-    reducer: persistedReducer
+  reducer: persistedReducer
 })
 
 export const persistor = persistStore(store)
