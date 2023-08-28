@@ -30,7 +30,7 @@ export function Message({ keyProp, role, content, timestamp, typewriter }: Messa
   if (typewriter) {
     bubbleWrap = 'grid px-2.5 md:px-3 xl:px-4 animate-pop-up-from-bottom'
   }
-
+  console.log(content)
   return (
     <div
       key={keyProp}

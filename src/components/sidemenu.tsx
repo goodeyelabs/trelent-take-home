@@ -6,7 +6,7 @@ import Conversations from "./conversations"
 import ConversationFooter from "./conversations-footer"
 import ConversationsHeader from "./conversations-header"
 
-export default function SideMenu({ closeOverlay }: {closeOverlay?:any}) {
+export default function SideMenu({ closeOverlay }: { closeOverlay?: any }) {
   return (
     <div className="grid h-full grid-rows-[1fr_auto]">
       <div className="grid h-full grid-rows-[auto_1fr]">

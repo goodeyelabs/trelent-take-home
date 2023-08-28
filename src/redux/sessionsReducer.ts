@@ -51,12 +51,12 @@ const initialState: InitialState = {
           {
             timestamp: getCurrentTimestamp(),
             role: "user",
-            content: "What does it mean that Saturn is in opposition right now? Is Saturn in danger of hitting the Earth?",
+            content: "Help me paint the Barbarian miniature from the HeroQuest game system, using a simplified set of steps.",
           },
           {
             timestamp: getCurrentTimestamp(),
             role: "assistant",
-            content: "When we say that Saturn is in opposition, it means that Saturn and the Sun are on opposite sides of the Earth. This alignment allows for optimal viewing conditions, as Saturn is visible throughout the night, rising in the east as the Sun sets in the west. However, it's important to note that the opposition of Saturn does not have any impact on its distance from Earth or pose any danger of collision. Saturn is located approximately 1.2 billion kilometers away from Earth, and its orbit is well-defined, keeping it at a safe distance. So, there is no need to worry about Saturn hitting the Earth during its opposition or at any other time.",
+            content: "Certainly, Stanley! Here's a guide to painting the Barbarian miniature in just a few steps:\n\n**Prepare & prime** Start by priming the miniature with a thin, even coat of primer. This will help the paint adhere better.\n\n**Base colors & highlights** Use base colors to paint the different areas of the miniature. For the Barbarian, you can use brown for the leather armor, silver for the weapon, and various colors for the details like the belt, boots, and hair.\n\n**Finishing touches** Complete the miniature by adding additional details like a wash or dry brush technique to enhance texture and depth. You can also add small accents, like freehand designs or decals, to personalize the miniature.",
           },
         ]
       },
@@ -73,7 +73,7 @@ const initialState: InitialState = {
           {
             timestamp: getCurrentTimestamp(),
             role: "assistant",
-            content: "Yes, Stanley, I can help with this. Tell my what you would like to achieve tomorrow and I will create some useful todo items to help you get there."
+            content: "Yes, Stanley, I can help with this. Tell me what you would like to achieve tomorrow and I will create some useful todo items to help you get there."
 
           },
         ]
