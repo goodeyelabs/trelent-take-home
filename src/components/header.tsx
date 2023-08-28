@@ -17,11 +17,9 @@ import UserButton from './user-button'
 function RightMenu() {
   return (
     <div className='grid grid-flow-row gap-4 h-full items-start content-start py-4 px-5 sm:px-8 md:px-12px lg:px-16px'>
-      <div className='grid grid-flow-col grid-cols-[1fr_auto] justify-stretch gap-3 pb-4 border-b border-dashed border-neutral-200 dark:border-redax-lighter'>
-        <Overlay overlayType='popup' title='Account' content={<Account />}>
-          <Button text='Account' icon={<UserIcon />} dontHideText />
-        </Overlay>
-        <DarkModeSwitch />
+      <div className='grid grid-flow-col grid-cols-2 gap-3 pb-4 border-b border-dashed border-neutral-200 dark:border-redax-lighter'>
+        <UserButton mode={'text'} />
+        <DarkModeSwitch mode={'text'} />
       </div>
       <div className='grid gap-4 justify-stretch content-start'>
         <Overlay overlayType='popup' title='How to use' content={<How />}>
@@ -69,7 +67,7 @@ function TopMenu() {
 
 export default function Header() {
   return (
-    <div className='grid gap-3 grid-cols-[auto_auto_1fr] md:grid-cols-[auto_1fr] h-full px-4 md:px-6 xl:px-8 bg-white dark:bg-redax-dark/70 items-center shadow-[0_1px_0_0] shadow-gray-200 dark:shadow-redax-light'>
+    <div className='select-none grid gap-3 grid-cols-[auto_auto_1fr] md:grid-cols-[auto_1fr] h-full px-4 md:px-6 xl:px-8 bg-white dark:bg-redax-dark/70 items-center shadow-[0_1px_0_0] shadow-gray-200 dark:shadow-redax-light'>
       <div className='grid justify-items-start md:hidden cursor-pointer'>
         <Overlay overlayType='drawer-left' title='Chats' content={<SideMenu />}>
           <ChevronLeftIcon className='w-6 h-auto' />
@@ -86,7 +84,7 @@ export default function Header() {
         <p className='grid grid-flow-col text-xl text-gray-900 dark:text-neutral-200 font-extrabold tracking-slight'>Trelent<span className='tracking-tighter font-normal pl-0.5 text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-light-blue)] to-[var(--color-pink-red)]'>GPT</span></p>
       </div>
       <div className='grid justify-items-end lg:hidden'>
-        <Overlay overlayType='drawer-right' title='RedaxGPT' content={<RightMenu />}>
+        <Overlay overlayType='drawer-right' title='TrelentGPT' content={<RightMenu />}>
           <Bars3BottomRightIcon className='w-6 h-auto cursor-pointer' />
         </Overlay>
       </div>

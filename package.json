@@ -23,6 +23,7 @@
     "next-themes": "^0.2.1",
     "postcss": "8.4.28",
     "react": "18.2.0",
+    "react-click-away-listener": "^2.2.3",
     "react-dom": "18.2.0",
     "react-gtm-module": "^2.0.11",
     "react-markdown": "^8.0.7",
