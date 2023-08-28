@@ -3,6 +3,7 @@
 //  ======
 
 import { formatDate } from '@/tools/common'
+import { EllipsisHorizontalIcon } from '@heroicons/react/24/outline'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 
@@ -39,8 +40,17 @@ export function Message({ keyProp, role, content, timestamp, typewriter }: Messa
       <div className={bubbleOuter}>
         <div className={bubble}>
           <div className={bubbleText}>
-            {// eslint-disable-next-line
-              <ReactMarkdown children={content ? content : ''} remarkPlugins={[remarkGfm]} />
+            {
+              content === '...' &&
+              <EllipsisHorizontalIcon className='w-3.5 animate-ping'/>
+            }
+            {
+              content !== '...' &&
+                <>
+                  {// eslint-disable-next-line
+                    <ReactMarkdown children={content ? content : ''} remarkPlugins={[remarkGfm]} />
+                  }
+                </>
             }
           </div>
         </div>
