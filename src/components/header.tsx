@@ -24,19 +24,19 @@ function RightMenu() {
       </div>
       <div className='grid auto-rows-[var(--header-height)] justify-center justify-items-center items-center content-center h-full pb-[var(--header-height)]'>
         <Overlay overlayType='popup' title='Upgrade to Enterprise' content={<Upgrade />}>
-          <p className='text-xl text-neutral-800 dark:text-neutral-200 hover:text-neutral-400 dark:hover:text-neutral-500 cursor-pointer font-bold'>Upgrade</p>
+          <p className='text-xl text-neutral-800 dark:text-neutral-200 hover:text-neutral-400 dark:hover:text-neutral-500 cursor-pointer font-semibold'>Upgrade</p>
         </Overlay>
         <Overlay overlayType='popup' title='How to use' content={<How />}>
-          <p className='text-xl text-neutral-800 dark:text-neutral-200 hover:text-neutral-400 dark:hover:text-neutral-500 cursor-pointer font-bold'>How to use</p>
+          <p className='text-xl text-neutral-800 dark:text-neutral-200 hover:text-neutral-400 dark:hover:text-neutral-500 cursor-pointer font-semibold'>How to use</p>
         </Overlay>
         <Overlay overlayType='popup' title='FAQ and help' content={<Help />}>
-          <p className='text-xl text-neutral-800 dark:text-neutral-200 hover:text-neutral-400 dark:hover:text-neutral-500 cursor-pointer font-bold'>FAQ and help</p>
+          <p className='text-xl text-neutral-800 dark:text-neutral-200 hover:text-neutral-400 dark:hover:text-neutral-500 cursor-pointer font-semibold'>FAQ and help</p>
         </Overlay>
         <Overlay overlayType='popup' title='Send feedback' content={<Feedback />}>
-          <p className='text-xl text-neutral-800 dark:text-neutral-200 hover:text-neutral-400 dark:hover:text-neutral-500 cursor-pointer font-bold'>Send feedback</p>
+          <p className='text-xl text-neutral-800 dark:text-neutral-200 hover:text-neutral-400 dark:hover:text-neutral-500 cursor-pointer font-semibold'>Send feedback</p>
         </Overlay>
         <Overlay overlayType='popup' title='FAQ and help' content={<Privacy />}>
-          <p className='text-xl text-neutral-800 dark:text-neutral-200 hover:text-neutral-400 dark:hover:text-neutral-500 cursor-pointer font-bold'>Privacy policy</p>
+          <p className='text-xl text-neutral-800 dark:text-neutral-200 hover:text-neutral-400 dark:hover:text-neutral-500 cursor-pointer font-semibold'>Privacy policy</p>
         </Overlay>
       </div>
     </div>
