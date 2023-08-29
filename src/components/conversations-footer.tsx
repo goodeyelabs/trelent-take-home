@@ -7,7 +7,7 @@ import Privacy from "@/menus/privacy";
 
 export default function ConversationsFooter() {
   return (
-    <div className='grid w-full h-[var(--footer-height)] gap-4 grid-flow-col justify-start items-center content-center px-5 md:px-6 xl:px-8 bg-white dark:bg-redax-medium'>
+    <div className='grid w-full h-[var(--footer-height)] gap-4 grid-flow-col justify-start items-center content-center px-5 md:px-6 xl:px-8 bg-[var(--color-very-faint-purple)] dark:bg-redax-medium'>
       {/* <Overlay overlayType='popup' title='Share feedback' content={<Feedback />}>
         <Button
           icon={<LightBulbIcon />}

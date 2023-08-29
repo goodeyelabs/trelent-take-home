@@ -14,7 +14,7 @@ export default function HomePage() {
       <div className="z-20 grid row-start-1 col-span-full shadow-[0_1px_0_0] shadow-neutral-200">
         <Header />
       </div>
-      <div className="z-10 hidden md:grid row-start-2 shadow-[1px_0_0_0] shadow-neutral-200/80 dark:shadow-redax-lighter dark:bg-redax-medium overflow-y-auto">
+      <div className="z-10 hidden md:grid row-start-2 shadow-[1px_0_0_0] shadow-neutral-200/80 dark:shadow-redax-lighter bg-[var(--color-very-faint-purple)] dark:bg-redax-medium overflow-y-auto">
         <SideMenu />
       </div>
       <div className="z-0 grid row-start-2 shadow-[1px_0_0_0] shadow-neutral-200 bg-white dark:bg-redax overflow-y-auto">
