@@ -26,19 +26,19 @@ export default function DarkModeButton({ mode }: { mode?: string }) {
     <div className='grid relative z-20 select-none'>
       {
         theme === 'light' &&
-        <Button dontHideText onClick={() => handleShowMenu()} text={mode && 'Light'} icon={<SunIcon />} />
+        <Button customRounded='rounded-full' dontHideText onClick={() => handleShowMenu()} text={mode && 'Light'} icon={<SunIcon />} />
       }
       {
         theme === 'dark' &&
-        <Button dontHideText onClick={() => handleShowMenu()} text={mode && 'Dark'} icon={<MoonIcon />} />
+        <Button customRounded='rounded-full' dontHideText onClick={() => handleShowMenu()} text={mode && 'Dark'} icon={<MoonIcon />} />
       }
       {
         theme === 'system' && systemTheme === 'light' &&
-        <Button dontHideText onClick={() => handleShowMenu()} text={mode && 'System'} icon={<SunIcon />} />
+        <Button customRounded='rounded-full' dontHideText onClick={() => handleShowMenu()} text={mode && 'System'} icon={<SunIcon />} />
       }
       {
         theme === 'system' && systemTheme === 'dark' &&
-        <Button dontHideText onClick={() => handleShowMenu()} text={mode && 'System'} icon={<MoonIcon />} />
+        <Button customRounded='rounded-full' dontHideText onClick={() => handleShowMenu()} text={mode && 'System'} icon={<MoonIcon />} />
       }
       {
         showMenu && (<ClickAwayListener onClickAway={() => setShowMenu(false)}>

@@ -74,14 +74,14 @@ export default function MessageInput() {
 
   // Auto-focus the textarea input when activeSession changes, to allow immediate text entry
   //  TODO: this doesn't work so well on mobile devices with software keybords that auto-position to the textarea - maybe disable for mobile?
-  
+
   useEffect(() => {
     textareaRef.current && textareaRef.current.focus()
   }, [activeSession])
 
   return (
-    <div className={`grid h-[var(--footer-height)] gap-3 grid-flow-col grid-cols-[1fr_auto] md:grid-cols-[1fr_auto_auto] pb-[calc((var(--footer-height)-40px)/2)] px-5 md:px-6 xl:px-8 bg-white dark:bg-redax items-end shadow-[0_-1px_0_0] shadow-neutral-200/80 dark:shadow-redax-lighter md:shadow-none`}>
-      <div className='grid items-center min-h-[38px] py-2 px-5 bg-white dark:bg-redax-lighter shadow-[inset_0_0_0_1px] shadow-neutral-300 dark:shadow-redax-light rounded-[calc(40px/2)]'>
+    <div className={`grid gap-3 grid-flow-col grid-cols-[1fr_auto] md:grid-cols-[1fr_auto_auto] py-[calc((var(--footer-height)-40px)/2)] px-5 md:px-6 xl:px-8 bg-white dark:bg-redax items-end shadow-[0_-1px_0_0] shadow-neutral-200/80 dark:shadow-redax-lighter md:shadow-none`}>
+      <div className='grid items-center min-h-[40px] py-2 px-4 bg-white dark:bg-redax-lighter shadow-[inset_0_0_0_1px] shadow-neutral-300 dark:shadow-redax-light rounded-[10px]'>
         <div className='grid gap-3 grid-cols-[auto_1fr] items-center'>
           <ChatBubbleLeftIcon className='hidden md:grid mt-0.5 self-start w-5 h-5 text-neutral-400' />
           <TextareaAutosize

@@ -40,7 +40,7 @@ export default function UserButton({ mode }: { mode?: string }) {
 
   return (
     <div className='grid relative z-20 select-none'>
-      <Button dontHideText onClick={() => handleShowMenu()} text={mode && 'Settings'} icon={<EllipsisHorizontalIcon />} />
+      <Button customRounded='rounded-full' dontHideText onClick={() => handleShowMenu()} text={mode && 'Settings'} icon={<EllipsisHorizontalIcon />} />
       {
         showMenu && (<ClickAwayListener onClickAway={() => setShowMenu(false)}>
           <div ref={menuRef} className='grid w-[160px] gap-2 absolute top-11 right-0 py-3 animate-pop-up-from-bottom bg-white dark:bg-redax-light px-3 border border-neutral-200 dark:border-redax-lighter shadow-sm rounded-[10px]'>
