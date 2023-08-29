@@ -48,17 +48,17 @@ function TopMenu() {
     <>
       <div className='grid grid-flow-col gap-8 h-full items-center'>
         <Overlay overlayType='popup' title='Upgrade to Enterprise' content={<Upgrade />}>
-          <div className='h-full grid place-content-center cursor-pointer text-neutral-700 hover:text-neutral-500 dark:text-neutral-400 dark:hover:text-neutral-200'>
+          <div className='h-full grid place-content-center cursor-pointer text-neutral-900 hover:text-neutral-500 dark:text-neutral-400 dark:hover:text-neutral-200'>
             <p className='text-sm font-semibold'>Upgrade</p>
           </div>
         </Overlay>
         <Overlay overlayType='popup' title='FAQ + Help' content={<Help />}>
-          <div className='h-full grid place-content-center cursor-pointer text-neutral-700 hover:text-neutral-500 dark:text-neutral-400 dark:hover:text-neutral-200'>
+          <div className='h-full grid place-content-center cursor-pointer text-neutral-900 hover:text-neutral-500 dark:text-neutral-400 dark:hover:text-neutral-200'>
             <p className='text-sm font-semibold'>FAQ + Help</p>
           </div>
         </Overlay>
         <Overlay overlayType='popup' title='Send feedback' content={<Feedback />}>
-          <div className='h-full grid place-content-center cursor-pointer text-neutral-700 hover:text-neutral-500 dark:text-neutral-400 dark:hover:text-neutral-200'>
+          <div className='h-full grid place-content-center cursor-pointer text-neutral-900 hover:text-neutral-500 dark:text-neutral-400 dark:hover:text-neutral-200'>
             <p className='text-sm font-semibold'>Send feedback</p>
           </div>
         </Overlay>
