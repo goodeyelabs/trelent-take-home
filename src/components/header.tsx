@@ -88,7 +88,7 @@ export default function Header() {
           height='69'
           className='hidden md:grid w-5 md:w-6 h-fit drop-shadow-md'
         />
-        <p className='grid grid-flow-col text-xl text-gray-900 dark:text-neutral-200 font-extrabold tracking-slight'>Trelent<span className='tracking-tighter font-normal pl-0.5 text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-light-blue)] to-[var(--color-pink-red)]'>GPT</span></p>
+        <p className='grid grid-flow-col text-xl md:text-lg text-gray-900 dark:text-neutral-200 font-extrabold tracking-slight'>Trelent<span className='tracking-tighter font-normal pl-0.5 text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-light-blue)] to-[var(--color-pink-red)]'>GPT</span></p>
       </div>
       <div className='grid justify-items-end lg:hidden'>
         <Overlay overlayType='drawer-right' title='TrelentGPT' content={<RightMenu />}>
