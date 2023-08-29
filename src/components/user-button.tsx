@@ -2,7 +2,7 @@
 //  User settings menu popup button
 //  ======
 
-import { ArrowPathIcon, Cog8ToothIcon, EllipsisVerticalIcon, UserIcon, XMarkIcon } from "@heroicons/react/24/outline"
+import { ArrowPathIcon, Cog8ToothIcon, EllipsisHorizontalIcon, EllipsisVerticalIcon, UserIcon, XMarkIcon } from "@heroicons/react/24/outline"
 import { useTheme } from "next-themes"
 import { useRef, useState } from "react"
 import { persistor } from '@/redux/store'
@@ -18,14 +18,16 @@ export default function UserButton({ mode }: { mode?: string }) {
   const menuRef = useRef<HTMLDivElement>(null)
 
   const handleReset = () => {
-    // Redux-persist flushing functionality
+    const reset = confirm('Are you sure about resetting the app? All chats and messages will be removed, and the demo data loaded.')
 
-    persistor.pause()
-
-    persistor.flush().then(() => {
-      persistor.purge()
-      return window.location.reload()
-    })
+    if (reset) {
+      // Redux-persist flushing functionality
+      persistor.pause()
+      persistor.flush().then(() => {
+        persistor.purge()
+        return window.location.reload()
+      })
+    }
   }
 
   const handleSignOut = () => {
@@ -38,7 +40,7 @@ export default function UserButton({ mode }: { mode?: string }) {
 
   return (
     <div className='grid relative z-20 select-none'>
-      <Button dontHideText onClick={() => handleShowMenu()} text={mode && 'Settings'} icon={<Cog8ToothIcon />} />
+      <Button dontHideText onClick={() => handleShowMenu()} text={mode && 'Settings'} icon={<EllipsisHorizontalIcon />} />
       {
         showMenu && (<ClickAwayListener onClickAway={() => setShowMenu(false)}>
           <div ref={menuRef} className='grid w-[160px] gap-2 absolute top-11 right-0 py-3 animate-pop-up-from-bottom bg-white dark:bg-redax-light px-3 border border-neutral-200 dark:border-redax-lighter shadow-sm rounded-[10px]'>

@@ -12,23 +12,31 @@ import Help from '@/menus/help'
 import Upgrade from '@/menus/upgrade'
 import DarkModeSwitch from './dark-mode-switch'
 import UserButton from './user-button'
+import Feedback from '@/menus/feedback'
+import About from '@/menus/about'
 
 function RightMenu() {
   return (
     <div className='grid grid-flow-row gap-4 h-full items-start content-start py-4 px-5 sm:px-8 md:px-12px lg:px-16px'>
       <div className='grid grid-flow-col grid-cols-2 gap-3 pb-4 border-b border-dashed border-neutral-200 dark:border-redax-lighter'>
-        <UserButton mode={'text'} />
         <DarkModeSwitch mode={'text'} />
+        <UserButton mode={'text'} />
       </div>
       <div className='grid gap-4 justify-stretch content-start'>
+        <Overlay overlayType='popup' title='Upgrade to Enterprise' content={<Upgrade />}>
+          <Button text='Upgrade' dontHideText />
+        </Overlay>
         <Overlay overlayType='popup' title='How to use' content={<How />}>
           <Button text='How to use' dontHideText />
         </Overlay>
         <Overlay overlayType='popup' title='FAQ + Help' content={<Help />}>
-          <Button text='FAQ + Help' dontHideText />
+          <Button text='FAQ + help' dontHideText />
         </Overlay>
-        <Overlay overlayType='popup' title='Upgrade to Enterprise' content={<Upgrade />}>
-          <Button text='Upgrade to Enterprise' dontHideText />
+        <Overlay overlayType='popup' title='Send feedback' content={<Feedback />}>
+          <Button text='Send feedback' dontHideText />
+        </Overlay>
+        <Overlay overlayType='popup' title='About TrelentGPT' content={<About />}>
+          <Button text='About TrelentGPT' dontHideText />
         </Overlay>
       </div>
     </div>
@@ -38,10 +46,10 @@ function RightMenu() {
 function TopMenu() {
   return (
     <>
-      <div className='grid grid-flow-col gap-10 h-full items-center'>
-        <Overlay overlayType='popup' title='How to use' content={<How />}>
+      <div className='grid grid-flow-col gap-8 h-full items-center'>
+        <Overlay overlayType='popup' title='Upgrade to Enterprise' content={<Upgrade />}>
           <div className='h-full grid place-content-center cursor-pointer text-neutral-700 hover:text-neutral-500 dark:text-neutral-400 dark:hover:text-neutral-200'>
-            <p className='text-sm font-semibold'>How to use</p>
+            <p className='text-sm font-semibold'>Upgrade</p>
           </div>
         </Overlay>
         <Overlay overlayType='popup' title='FAQ + Help' content={<Help />}>
@@ -49,14 +57,14 @@ function TopMenu() {
             <p className='text-sm font-semibold'>FAQ + Help</p>
           </div>
         </Overlay>
-        <Overlay overlayType='popup' title='Upgrade to Enterprise' content={<Upgrade />}>
+        <Overlay overlayType='popup' title='Send feedback' content={<Feedback />}>
           <div className='h-full grid place-content-center cursor-pointer text-neutral-700 hover:text-neutral-500 dark:text-neutral-400 dark:hover:text-neutral-200'>
-            <p className='text-sm font-semibold'>Upgrade</p>
+            <p className='text-sm font-semibold'>Send feedback</p>
           </div>
         </Overlay>
         <div className='w-[1px] h-5 border-r border-neutral-300 dark:border-neutral-800 border-dotted' />
       </div>
-      <div className='grid grid-flow-col gap-3 items-center cursor-pointer pl-10'>
+      <div className='grid grid-flow-col gap-3 items-center cursor-pointer pl-8'>
         <DarkModeSwitch />
         <UserButton />
       </div>
