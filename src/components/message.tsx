@@ -18,14 +18,14 @@ export type MessageProps = {
 export function Message({ keyProp, role, content, timestamp, typewriter }: MessageProps) {
   let bubbleWrap = 'grid px-2.5 md:px-3 xl:px-4'
   let bubbleOuter = 'grid gap-2 w-[90%] place-self-start justify-start justify-items-start py-4'
-  let bubble = 'grid items-center bg-neutral-100/50 dark:bg-redax-light rounded-[20px] min-h-[40px] px-2.5 md:px-3 xl:px-4'
-  let bubbleText = 'text-sm font-base tracking-slight leading-relaxed text-gray-950 dark:text-stone-300 py-2'
+  let bubble = 'grid items-center bg-neutral-100/50 dark:bg-redax-light rounded-[20px] px-4 md:px-4 xl:px-4'
+  let bubbleText = 'text-sm font-base tracking-slight leading-relaxed text-gray-950 dark:text-stone-300 py-[9px]'
 
   if (role === 'user') {
     bubbleWrap = 'grid px-2.5 md:px-3 xl:px-4 animate-pop-up-from-bottom'
     bubbleOuter = 'grid gap-2 w-[90%] place-self-end justify-end justify-items-end py-4'
-    bubble = 'grid items-center bg-gradient-to-r from-blue-500 to-sky-400 rounded-[20px] min-h-[40px] px-2.5 md:px-3 xl:px-4'
-    bubbleText = 'text-sm font-base tracking-slight leading-relaxed text-white py-2'
+    bubble = 'grid items-center bg-gradient-to-r from-blue-500 to-sky-400 rounded-[20px] px-4 md:px-4 xl:px-4'
+    bubbleText = 'text-sm font-base tracking-slight leading-relaxed text-white py-[9px]'
   }
 
   if (typewriter) {
