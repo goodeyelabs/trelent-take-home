@@ -17,7 +17,7 @@ export default function SideMenu({ closeOverlay }: { closeOverlay?: any }) {
           <Conversations closeOverlay={closeOverlay} />
         </div>
       </div>
-      <div className="grid sticky bottom-0 bg-blue-25 shadow-[0_-1px_0_0] shadow-transparent dark:shadow-redax-lighter">
+      <div className="grid sticky bottom-0">
         <ConversationFooter />
       </div>
     </div>
