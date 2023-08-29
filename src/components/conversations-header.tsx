@@ -25,7 +25,7 @@ export default function ConversationsHeader({ closeOverlay }: { closeOverlay?: a
   return (
     <div className='grid h-[var(--sub-header-height)] gap-3 grid-flow-col px-5 md:px-6 xl:pl-8 xl:pr-8 items-center bg-[var(--color-very-faint-purple)] dark:bg-redax-medium'>
       <div className='grid grid-cols-[1fr_auto] gap-3 grid-flow-col items-center'>
-        <div className='grid gap-2 grid-cols-[auto_1fr] min-h-[40px] items-center py-2 px-3 bg-white dark:bg-redax-lighter shadow-[inset_0_0_0_1px] shadow-neutral-300/60 dark:shadow-redax-lighter rounded-[10px]'>
+        <div className='grid gap-2 grid-cols-[auto_1fr] min-h-[40px] items-center py-2 px-3 bg-white dark:bg-redax-lighter shadow-[inset_0_0_0_1px] shadow-neutral-300/60 dark:shadow-redax-lighter rounded-[20px]'>
           <MagnifyingGlassIcon className='w-4 h-4 text-neutral-400' />
           <textarea
             rows={1}

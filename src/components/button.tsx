@@ -15,7 +15,7 @@ type buttonProps = {
 }
 
 const defaultBg = 'bg-neutral-100/50 hover:bg-neutral-200/50 dark:bg-neutral-950 dark:hover:bg-neutral-800'
-const defaultTextColor = 'text-neutral-700/90 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral-200'
+const defaultTextColor = 'text-neutral-800 hover:text-neutral-950 dark:text-neutral-300 dark:hover:text-neutral-200'
 
 function Button({ icon, text, customRounded, onClick, dontHideText, customBg, customTextColor }: buttonProps) {
 	const styledIcon = icon ? cloneElement(icon, { className: 'h-5 w-5' }) : null
@@ -23,7 +23,7 @@ function Button({ icon, text, customRounded, onClick, dontHideText, customBg, cu
 	return (
 		<button
 			onClick={onClick || null}
-			className={`transition-all ease-in-out duration-75 dark:duration-0 ${customTextColor ? customTextColor : defaultTextColor} ${customBg ? customBg : defaultBg} grid place-content-center items-center gap-2 group cursor-pointer h-[40px] ${dontHideText ? 'w-auto' : 'w-[40px] md:w-auto'} grid-flow-col text-sm font-medium tracking-slight justify-items-center px-3 ${text ? 'pr-3' : 'pr-3'} ${customRounded ? customRounded : ' rounded-[10px]'} border-0 outline-none select-none `}
+			className={`transition-all ease-in-out duration-75 dark:duration-0 ${customTextColor ? customTextColor : defaultTextColor} ${customBg ? customBg : defaultBg} grid place-content-center items-center gap-2 group cursor-pointer h-[40px] ${dontHideText ? 'w-auto' : 'w-[40px] md:w-auto'} grid-flow-col text-sm font-medium tracking-slight justify-items-center px-3 ${text ? 'pr-3' : 'pr-3'} ${customRounded ? customRounded : ' rounded-[20px]'} border-0 outline-none select-none `}
 		>
 			{
 				icon &&
