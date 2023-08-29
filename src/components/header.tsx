@@ -13,7 +13,7 @@ import Upgrade from '@/menus/upgrade'
 import DarkModeSwitch from './dark-mode-switch'
 import UserButton from './user-button'
 import Feedback from '@/menus/feedback'
-import About from '@/menus/about'
+import Privacy from '@/menus/privacy'
 
 function RightMenu() {
   return (
@@ -35,8 +35,8 @@ function RightMenu() {
         <Overlay overlayType='popup' title='Send feedback' content={<Feedback />}>
           <Button text='Send feedback' dontHideText />
         </Overlay>
-        <Overlay overlayType='popup' title='About TrelentGPT' content={<About />}>
-          <Button text='About TrelentGPT' dontHideText />
+        <Overlay overlayType='popup' title='Privacy policy' content={<Privacy />}>
+          <Button text='Privacy policy' dontHideText />
         </Overlay>
       </div>
     </div>

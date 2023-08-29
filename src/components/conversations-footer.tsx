@@ -2,15 +2,12 @@
 //  Sidebar footer showing chat sessions
 //  ======
 
-import { InformationCircleIcon, LightBulbIcon } from "@heroicons/react/24/outline";
-import Button from "./button";
 import Overlay from "./overlay";
-import About from "@/menus/about";
-import Feedback from "@/menus/feedback";
+import Privacy from "@/menus/privacy";
 
 export default function ConversationsFooter() {
   return (
-    <div className='grid w-full h-[var(--footer-height)] gap-3 grid-flow-col justify-start px-5 md:px-6 xl:px-8 bg-white dark:bg-redax-medium items-center'>
+    <div className='grid w-full h-[var(--footer-height)] gap-3 grid-flow-col justify-between items-center px-5 md:px-6 xl:px-8 bg-white dark:bg-redax-medium'>
       {/* <Overlay overlayType='popup' title='Share feedback' content={<Feedback />}>
         <Button
           icon={<LightBulbIcon />}
@@ -18,12 +15,9 @@ export default function ConversationsFooter() {
           dontHideText
         />
       </Overlay> */}
-      <Overlay overlayType='popup' title='About' content={<About />}>
-        <Button
-          icon={<InformationCircleIcon />}
-          text='About'
-          dontHideText
-        />
+        <p className="text-sm text-neutral-400/60 dark:text-neutral-500/70 tracking-tight">Goodeye &copy;2023</p>
+      <Overlay overlayType='popup' title='Privacy policy' content={<Privacy />}>
+        <p className="cursor-pointer text-sm text-neutral-400/60 dark:text-neutral-500/70 tracking-tight">Privacy policy</p>
       </Overlay>
     </div>
   )
