@@ -17,26 +17,26 @@ import Privacy from '@/menus/privacy'
 
 function RightMenu() {
   return (
-    <div className='grid grid-flow-row gap-4 h-full items-start content-start py-4 px-5 sm:px-8 md:px-12px lg:px-16px'>
+    <div className='grid grid-flow-row gap-4 h-full grid-rows-[auto_1fr] items-start content-start py-4 px-5 sm:px-8 md:px-12px lg:px-16px'>
       <div className='grid grid-flow-col grid-cols-2 gap-3 pb-4 border-b border-dashed border-neutral-200 dark:border-redax-lighter'>
         <DarkModeSwitch mode={'text'} />
         <UserButton mode={'text'} />
       </div>
-      <div className='grid gap-4 justify-stretch content-start'>
+      <div className='grid auto-rows-[var(--header-height)] justify-center justify-items-center items-center content-center h-full pb-[var(--header-height)]'>
         <Overlay overlayType='popup' title='Upgrade to Enterprise' content={<Upgrade />}>
-          <Button text='Upgrade' dontHideText />
+          <p className='text-xl text-neutral-800 dark:text-neutral-200 hover:text-neutral-400 dark:hover:text-neutral-500 cursor-pointer font-bold'>Upgrade</p>
         </Overlay>
         <Overlay overlayType='popup' title='How to use' content={<How />}>
-          <Button text='How to use' dontHideText />
+          <p className='text-xl text-neutral-800 dark:text-neutral-200 hover:text-neutral-400 dark:hover:text-neutral-500 cursor-pointer font-bold'>How to use</p>
         </Overlay>
-        <Overlay overlayType='popup' title='FAQ + Help' content={<Help />}>
-          <Button text='FAQ + help' dontHideText />
+        <Overlay overlayType='popup' title='FAQ and help' content={<Help />}>
+          <p className='text-xl text-neutral-800 dark:text-neutral-200 hover:text-neutral-400 dark:hover:text-neutral-500 cursor-pointer font-bold'>FAQ and help</p>
         </Overlay>
         <Overlay overlayType='popup' title='Send feedback' content={<Feedback />}>
-          <Button text='Send feedback' dontHideText />
+          <p className='text-xl text-neutral-800 dark:text-neutral-200 hover:text-neutral-400 dark:hover:text-neutral-500 cursor-pointer font-bold'>Send feedback</p>
         </Overlay>
-        <Overlay overlayType='popup' title='Privacy policy' content={<Privacy />}>
-          <Button text='Privacy policy' dontHideText />
+        <Overlay overlayType='popup' title='FAQ and help' content={<Privacy />}>
+          <p className='text-xl text-neutral-800 dark:text-neutral-200 hover:text-neutral-400 dark:hover:text-neutral-500 cursor-pointer font-bold'>Privacy policy</p>
         </Overlay>
       </div>
     </div>

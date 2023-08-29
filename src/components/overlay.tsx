@@ -30,14 +30,14 @@ export default function Overlay({ children, content, overlayType, title }: overl
         switch (overlayType) {
             case 'drawer-right':
                 return (
-                    <div className={`${!overlayIsClosing ? 'animate-slide-in-from-right' : 'animate-slide-out-to-right'} grid transform-gpu z-20 w-[95%] sm:w-[450px] h-screen h-screen-ios overflow-y-auto bg-white dark:bg-redax justify-self-end shadow-xl grid-rows-[auto_1fr] items-start`}>
+                    <div className={`${!overlayIsClosing ? 'animate-slide-in-from-right' : 'animate-slide-out-to-right'} grid transform-gpu z-20 w-[100%] sm:w-[450px] h-screen h-screen-ios overflow-y-auto bg-white dark:bg-redax justify-self-end shadow-xl grid-rows-[auto_1fr] items-start`}>
                         <Header />
                         {newContent}
                     </div>
                 )
             case 'drawer-left':
                 return (
-                    <div className={`${!overlayIsClosing ? 'animate-slide-in-from-left' : 'animate-slide-out-to-left'} grid transform-gpu z-20 w-[95%] sm:w-[450px] h-screen h-screen-ios overflow-y-auto bg-white dark:bg-redax justify-self-start shadow-xl grid-rows-[auto_1fr] items-start`}>
+                    <div className={`${!overlayIsClosing ? 'animate-slide-in-from-left' : 'animate-slide-out-to-left'} grid transform-gpu z-20 w-[100%] sm:w-[450px] h-screen h-screen-ios overflow-y-auto bg-white dark:bg-redax justify-self-start shadow-xl grid-rows-[auto_1fr] items-start`}>
                         <Header />
                         {newContent}
                     </div>
