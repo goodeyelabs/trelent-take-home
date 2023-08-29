@@ -12,6 +12,8 @@ type providerProps = {
   children: React.ReactNode
 }
 
+//  TODO: there's a console error about serialization for reduct-persist that doesn't seem to break anything but should be investigated
+
 export default function Providers({ children }: providerProps) {
   return (
     <Provider store={store}>

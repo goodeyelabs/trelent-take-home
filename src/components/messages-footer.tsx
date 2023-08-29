@@ -73,7 +73,8 @@ export default function MessageInput() {
   }
 
   // Auto-focus the textarea input when activeSession changes, to allow immediate text entry
-
+  //  TODO: this doesn't work so well on mobile devices with software keybords that auto-position to the textarea - maybe disable for mobile?
+  
   useEffect(() => {
     textareaRef.current && textareaRef.current.focus()
   }, [activeSession])
