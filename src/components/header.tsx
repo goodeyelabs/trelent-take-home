@@ -46,20 +46,20 @@ function RightMenu() {
 function TopMenu() {
   return (
     <>
-      <div className='grid grid-flow-col gap-8 h-full items-center'>
+      <div className='grid grid-flow-col gap-8 h-full items-center text-[15px] font-semibold text-mulberry-dark hover:text-mulberry dark:text-neutral-400 dark:hover:text-neutral-200'>
         <Overlay overlayType='popup' title='Upgrade to Enterprise' content={<Upgrade />}>
-        <div className='h-full grid place-content-center cursor-pointer text-mulberry-medium hover:text-mulberry dark:text-neutral-400 dark:hover:text-neutral-200'>
-            <p className='text-sm font-semibold'>Upgrade</p>
+        <div className='h-full grid place-content-center cursor-pointer'>
+            <p>Upgrade</p>
           </div>
         </Overlay>
         <Overlay overlayType='popup' title='Get help' content={<Help />}>
-          <div className='h-full grid place-content-center cursor-pointer text-mulberry-medium hover:text-mulberry dark:text-neutral-400 dark:hover:text-neutral-200'>
-            <p className='text-[15px] font-semibold'>Get help</p>
+          <div className='h-full grid place-content-center cursor-pointer'>
+            <p>Get help</p>
           </div>
         </Overlay>
         <Overlay overlayType='popup' title='Send feedback' content={<Feedback />}>
-        <div className='h-full grid place-content-center cursor-pointer text-mulberry-medium hover:text-mulberry dark:text-neutral-400 dark:hover:text-neutral-200'>
-            <p className='text-sm font-semibold'>Send feedback</p>
+        <div className='h-full grid place-content-center cursor-pointer'>
+            <p>Send feedback</p>
           </div>
         </Overlay>
         <div className='w-[1px] h-5 border-r border-neutral-300 dark:border-neutral-800 border-dotted' />
