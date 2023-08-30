@@ -39,8 +39,8 @@ export default function ConversationsHeader({ closeOverlay }: { closeOverlay?: a
           icon={<PencilSquareIcon />}
           text='New'
           onClick={handleNew}
-          customBg={'transition-all duration-75 bg-mulberry-lighter hover:bg-indigo-200/50 dark:bg-black dark:hover:bg-mulberry-dark/50'}
-          customTextColor={'text-mulberry-medium hover:text-mulberry-dark dark:text-purple-400 hover:dark:text-purple-300'}
+          customBg={'transition-all duration-75 bg-mulberry-lighter hover:bg-indigo-200/50 dark:bg-redax dark:hover:bg-redax-light'}
+          customTextColor={'text-mulberry-medium hover:text-mulberry-dark dark:text-mulberry-light hover:dark:text-mulberry-lighter'}
         />
       </div>
     </div>

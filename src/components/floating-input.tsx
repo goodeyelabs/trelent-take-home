@@ -14,7 +14,7 @@ export default function FloatingInput() {
   const { addMessage, generateMessage } = useMessages()
 
   //  We need to strip out the timestamp from previous messages to match the format expected by ChatGPT. The endpoint call fails if any fields beyond role and content are sent
-  
+
   const strippedMessages = () => {
     let output: any[] = []
 
@@ -76,7 +76,7 @@ export default function FloatingInput() {
   return (
     <div className='grid px-2.5 md:px-3 xl:px-4 lg:pb-[calc(var(--footer-height)/2)] bg-white dark:bg-redax'>
       <div className='grid py-0 pb-6 lg:pb-3 content-start w-full px-5 sm:px-8 md:px-12 lg:px-16 xl:px-32 bg-white dark:bg-redax'>
-        <div className='grid items-center py-2.5 px-4 md:px-3 xl:px-4 drop-shadow-sm bg-white dark:bg-redax-lighter shadow-[inset_0_0_0_1px] shadow-neutral-300 dark:shadow-neutral-700 rounded-[20px]'>
+        <div className='grid items-center py-2.5 px-4 md:px-3 xl:px-4 drop-shadow-sm bg-white dark:bg-redax-lighter shadow-[inset_0_0_0_1px] shadow-neutral-300 dark:shadow-white/5 rounded-[20px]'>
           <div className='grid gap-3 grid-flow-col grid-cols-[1fr_auto] md:grid-cols-[auto_1fr_auto] items-end'>
             <ChatBubbleLeftIcon className='hidden md:grid w-6 h-6 mb-[8px] text-mulberry-light' />
             <TextareaAutosize
