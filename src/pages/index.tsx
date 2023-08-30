@@ -2,7 +2,6 @@
 //  Main layout view for whole app
 //  ======
 
-import MessagesFooter from "@/components/messages-footer";
 import MessageList from "@/components/message-list";
 import Header from "@/components/header";
 import MessagesHeader from "@/components/messages-header";
@@ -30,7 +29,6 @@ export default function HomePage() {
           </div>
           <div className="grid sticky bottom-0">
             <FloatingInput />
-            {/* <MessagesFooter /> */}
           </div>
         </div>
       </div>

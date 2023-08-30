@@ -3,8 +3,7 @@
 //  ======
 
 import { useAppDispatch, useAppSelector } from '@/redux/hooks'
-import { formatDate, orderSessionsByCreateDate, getSessionMessages } from '@/tools/common'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { setScrollMain } from '@/redux/commonReducer'
 import { useMessages } from '@/utils/useMessages'
 import { Message } from './message'

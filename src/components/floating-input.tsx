@@ -13,6 +13,8 @@ export default function FloatingInput() {
   const [newMessage, setNewMessage] = useState('')
   const { addMessage, generateMessage } = useMessages()
 
+  //  We need to strip out the timestamp from previous messages to match the format expected by ChatGPT. The endpoint call fails if any fields beyond role and content are sent
+  
   const strippedMessages = () => {
     let output: any[] = []
 
