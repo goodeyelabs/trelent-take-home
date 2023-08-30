@@ -18,14 +18,14 @@ export type MessageProps = {
 export function Message({ keyProp, role, content, timestamp, typewriter }: MessageProps) {
   let bubbleWrap = 'grid px-2.5 md:px-3 xl:px-4'
   let bubbleOuter = 'grid gap-2 w-[90%] place-self-start justify-start justify-items-start py-4'
-  let bubble = 'grid items-center bg-neutral-100/50 dark:bg-redax-light rounded-[20px] px-4 md:px-4 xl:px-4'
-  let bubbleText = 'text-sm font-base tracking-slight leading-relaxed text-gray-950 dark:text-stone-300 py-[9px]'
+  let bubble = 'grid items-center bg-mulberry-lighter/40 dark:bg-redax-light rounded-[20px] px-4 md:px-4 xl:px-4'
+  let bubbleText = 'text-[15px] font-base text-mulberry dark:text-stone-300 py-[9px]'
 
   if (role === 'user') {
     bubbleWrap = 'grid px-2.5 md:px-3 xl:px-4 animate-pop-up-from-bottom'
     bubbleOuter = 'grid gap-2 w-[90%] place-self-end justify-end justify-items-end py-4'
     bubble = 'grid items-center bg-gradient-to-r from-blue-500 to-sky-400 rounded-[20px] px-4 md:px-4 xl:px-4'
-    bubbleText = 'text-sm font-base tracking-slight leading-relaxed text-white py-[9px]'
+    bubbleText = 'text-[15px] font-base text-white py-[9px]'
   }
 
   if (typewriter) {
@@ -48,13 +48,13 @@ export function Message({ keyProp, role, content, timestamp, typewriter }: Messa
               content !== '...' &&
                 <>
                   {// eslint-disable-next-line
-                    <ReactMarkdown children={content ? content : ''} remarkPlugins={[remarkGfm]} />
+                    <ReactMarkdown className='react-markdown' children={content ? content : ''} remarkPlugins={[remarkGfm]} />
                   }
                 </>
             }
           </div>
         </div>
-        <p className='text-xs text-neutral-400/80 dark:text-neutral-500/70 tracking-normal'>
+        <p className={`text-xs text-mulberry-light dark:text-neutral-500/70 ${role === 'assistant' && 'pl-4 md:pl-4 xl:pl-4'}`}>
           {
             typewriter &&
             <span className='font-base'>{typewriter}</span>

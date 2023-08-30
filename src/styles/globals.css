@@ -20,6 +20,17 @@
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #6e6e80;
+  letter-spacing: -0.01rem;
+  font-size: 16px;
+}
+
+/* React Markdown plugin rich text stylings */
+.react-markdown * {
+  margin-bottom: 1em;
+}
+.react-markdown *:last-child {
+  margin-bottom: 0;
 }
 
 @layer base {

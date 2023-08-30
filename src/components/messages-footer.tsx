@@ -92,7 +92,7 @@ export default function MessageInput() {
             value={newMessage}
             onChange={(event: { currentTarget: { value: string } }) => handleMessageChange(event.currentTarget.value)}
             placeholder='Send a message'
-            className='grid w-full resize-none text-base md:text-sm tracking-slight bg-transparent font-medium text-neutral-950 dark:text-neutral-300 placeholder:text-neutral-400 placeholder:tracking-tight appearance-none outline-none overflow-y-hidden'>
+            className='grid w-full resize-none text-[16px] md:text-[15px] bg-transparent font-medium text-mulberry-dark tracking-tight dark:text-neutral-300 placeholder:text-neutral-400 placeholder: appearance-none outline-none overflow-y-hidden'>
           </TextareaAutosize>
         </div>
       </div>

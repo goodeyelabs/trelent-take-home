@@ -64,7 +64,7 @@ export default function Overlay({ children, content, overlayType, title }: overl
         return (
             <div className='grid grid-rows-[var(--header-height)] grid-cols-[auto_1fr] grid-flow-col items-center justify-between justify-items-end px-5 sm:px-8 bg-white dark:bg-redax border-b border-slate-200 dark:border-redax-lighter'>
                 <div className='group grid col-start-1 row-start-1 grid-flow-col gap-2 items-center justify-start select-none cursor-pointer'>
-                    <p className='text-xl text-gray-900 dark:text-neutral-300 font-bold tracking-slight truncate'>{title}</p>
+                    <p className='text-xl text-gray-900 dark:text-neutral-300 font-bold  truncate'>{title}</p>
                 </div>
                 <div className='grid place-content-center'>
                     <XMarkIcon onClick={() => closeOverlay()} className='x-6 h-6 text-zinc-900 dark:text-neutral-300 cursor-pointer hover:text-blue-400' />
@@ -77,7 +77,7 @@ export default function Overlay({ children, content, overlayType, title }: overl
         return (
             <div className='grid grid-rows-[var(--header-height)] grid-cols-[auto_1fr] grid-flow-col items-center justify-between justify-items-end px-5 sm:px-8 bg-white dark:bg-redax border-b border-slate-200 dark:border-redax-lighter'>
                 <div className='group grid col-start-1 row-start-1 grid-flow-col gap-2 items-center justify-start select-none cursor-pointer'>
-                    <p className='truncate text-zinc-800 dark:text-neutral-300 font-bold text-xl tracking-tight'>{title}</p>
+                    <p className='truncate text-zinc-800 dark:text-neutral-300 font-bold text-xl '>{title}</p>
                 </div>
                 <div className='grid place-content-center'>
                     <XMarkIcon onClick={() => closeOverlay()} className='x-6 h-6 text-zinc-900 dark:text-neutral-300 cursor-pointer hover:text-blue-40' />

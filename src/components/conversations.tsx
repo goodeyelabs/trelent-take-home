@@ -30,10 +30,10 @@ export default function Conversations({ closeOverlay }: { closeOverlay?: any }) 
             <div
               key={c_idx}
               onClick={() => handleClick(c.sessionID)}
-              className={`grid px-5 md:px-6 xl:px-8 transition-all duration-0 ease-in-out ${activeSession === c.sessionID ? 'bg-slate-100 dark:bg-redax-light hover:bg-slate-100  dark:hover:bg-redax-light cursor-default' : ' hover:bg-neutral-100/50 dark:hover:bg-redax-light cursor-pointer'}`}
+              className={`grid px-5 md:px-6 xl:px-8 transition-all duration-0 ease-in-out ${activeSession === c.sessionID ? 'bg-mulberry-lighter dark:bg-redax-light hover:bg-mulberry-lighter  dark:hover:bg-redax-light cursor-default' : ' hover:bg-mulberry-lighter dark:hover:bg-redax-light cursor-pointer'}`}
             >
-              <div className={`grid border-t py-6 px-3 ${activeSession === c.sessionID || activeSession === c.sessionID + 1 ? 'border-transparent' : 'border-neutral-300/50 dark:border-redax-lighter border-dashed'}`}>
-                <p className={`line-clamp-3 text-sm font-base text-gray-950 dark:text-stone-300/90 leading-normal md:leading-relaxed tracking-slight ${activeSession === c.sessionID ? 'text-neutral-950 dark:text-stone-200' : ''}`}>
+              <div className={`grid border-t py-6 px-3 ${activeSession === c.sessionID || activeSession === c.sessionID + 1 ? 'border-transparent' : 'border-neutral-300/50 dark:border-redax-lighter border-dashed hover:border-transparent'}`}>
+                <p className={`line-clamp-3 text-[15px] font-base text-mulberry dark:text-stone-300/90 leading-normal md:leading-relaxed  ${activeSession === c.sessionID ? 'text-mulberry-medium dark:text-stone-200' : ''}`}>
                   {(s[2]) ? s[2].content : 'New chat session'}
                 </p>
               </div>
@@ -45,7 +45,7 @@ export default function Conversations({ closeOverlay }: { closeOverlay?: any }) 
         searchTerm &&
         <div className='grid px-5 md:px-6 xl:px-8'>
           <div className={`grid border-t py-6 px-3 border-neutral-300/50 dark:border-redax-lighter border-dashed'}`}>
-            <p className={`line-clamp-3 text-sm font-base text-gray-950 dark:text-stone-300/90 leading-normal md:leading-relaxed tracking-slight`}>
+            <p className={`line-clamp-3 text-sm font-base text-gray-950 dark:text-stone-300/90 leading-normal md:leading-relaxed `}>
               Searching is coming soon!
             </p>
           </div>
