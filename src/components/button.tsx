@@ -14,7 +14,7 @@ type buttonProps = {
 	customTextColor?: string,
 }
 
-const defaultBg = 'bg-mulberry-faint hover:bg-mulberry-lighter dark:bg-neutral-950 dark:hover:bg-neutral-800'
+const defaultBg = 'bg-mulberry-lighter/60 hover:bg-mulberry-lighter dark:bg-neutral-950 dark:hover:bg-neutral-800'
 const defaultTextColor = 'text-mulberry-medium hover:text-mulberry-dark dark:text-neutral-300 dark:hover:text-neutral-200'
 
 function Button({ icon, text, customRounded, onClick, dontHideText, customBg, customTextColor }: buttonProps) {
