@@ -13,10 +13,10 @@ const config: Config = {
     extend: {
       colors: {
         'mulberry': {
-          faint: '#fcfcff',
+          faint: '#fdfdff',
           lighter: '#f5f5ff',
           light: '#c7c7d8',
-          DEFAULT: '#676777',
+          DEFAULT: '#5d5d6b',
           medium: '#5a5a66',
           dark: '#434351',
         },
