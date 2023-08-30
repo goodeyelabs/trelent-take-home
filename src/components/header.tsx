@@ -46,19 +46,19 @@ function RightMenu() {
 function TopMenu() {
   return (
     <>
-      <div className='grid grid-flow-col gap-8 h-full items-center text-[15px] font-semibold text-mulberry-dark hover:text-mulberry dark:text-neutral-400 dark:hover:text-neutral-200'>
+      <div className='grid grid-flow-col gap-8 h-full items-center text-[15px] font-semibold text-mulberry-dark dark:text-neutral-400'>
         <Overlay overlayType='popup' title='Upgrade to Enterprise' content={<Upgrade />}>
-        <div className='h-full grid place-content-center cursor-pointer'>
+        <div className='h-full grid place-content-center cursor-pointer hover:text-mulberry dark:hover:text-neutral-200'>
             <p>Upgrade</p>
           </div>
         </Overlay>
         <Overlay overlayType='popup' title='Get help' content={<Help />}>
-          <div className='h-full grid place-content-center cursor-pointer'>
+          <div className='h-full grid place-content-center cursor-pointer hover:text-mulberry dark:hover:text-neutral-200'>
             <p>Get help</p>
           </div>
         </Overlay>
         <Overlay overlayType='popup' title='Send feedback' content={<Feedback />}>
-        <div className='h-full grid place-content-center cursor-pointer'>
+        <div className='h-full grid place-content-center cursor-pointer hover:text-mulberry dark:hover:text-neutral-200'>
             <p>Send feedback</p>
           </div>
         </Overlay>
