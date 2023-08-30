@@ -72,7 +72,7 @@ export default function FloatingInput() {
   }, [activeSession])
 
   return (
-    <div className='grid px-2.5 md:px-3 xl:px-4 md:pb-[calc(var(--footer-height)/2)] bg-white'>
+    <div className='grid px-2.5 md:px-3 xl:px-4 lg:pb-[calc(var(--footer-height)/2)] bg-white'>
       <div className='grid py-0 pb-6 lg:pb-3 content-start w-full px-5 sm:px-8 md:px-12 lg:px-16 xl:px-32 bg-white dark:bg-redax'>
         <div className='grid items-center py-2.5 px-4 md:px-3 xl:px-4 drop-shadow-sm bg-white dark:bg-redax-lighter shadow-[inset_0_0_0_1px] shadow-neutral-300 dark:shadow-redax-light rounded-[20px]'>
           <div className='grid gap-3 grid-flow-col grid-cols-[1fr_auto] items-end'>
