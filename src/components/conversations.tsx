@@ -33,7 +33,7 @@ export default function Conversations({ closeOverlay }: { closeOverlay?: any }) 
               className={`grid px-5 md:px-6 xl:px-8 transition-all duration-0 ease-in-out ${activeSession === c.sessionID ? 'bg-mulberry-lighter dark:bg-redax-light hover:bg-mulberry-lighter  dark:hover:bg-redax-light cursor-default' : ' hover:bg-mulberry-lighter dark:hover:bg-redax-light cursor-pointer'}`}
             >
               <div className={`grid border-t py-6 px-3 ${activeSession === c.sessionID || activeSession === c.sessionID + 1 ? 'border-transparent' : 'border-neutral-300/50 dark:border-redax-lighter border-dashed hover:border-transparent'}`}>
-                <p className={`line-clamp-3 text-[15px] font-base text-mulberry dark:text-stone-300/90 leading-normal md:leading-relaxed  ${activeSession === c.sessionID ? 'text-mulberry-dark dark:text-stone-200' : ''}`}>
+                <p className={`line-clamp-3 text-[15px] font-base text-mulberry-dark dark:text-stone-300/90 leading-normal md:leading-relaxed  ${activeSession === c.sessionID ? 'text-mulberry-dark dark:text-stone-200' : ''}`}>
                   {(s[2]) ? s[2].content : 'New chat session'}
                 </p>
               </div>
