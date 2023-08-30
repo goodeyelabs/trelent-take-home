@@ -1,7 +1,3 @@
-//  ======
-//  Message creation component
-//  ======
-
 import { useEffect, useState, useRef } from 'react'
 import { useAppSelector } from '@/redux/hooks'
 import Button from './button'
@@ -11,10 +7,9 @@ import Config from '@/menus/config'
 import TextareaAutosize from 'react-textarea-autosize'
 import { useMessages } from '@/utils/useMessages'
 
-export default function MessageInput() {
+export default function FloatingInput() {
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const { activeSession, sessions } = useAppSelector(state => state.sessions.data)
-
   const [newMessage, setNewMessage] = useState('')
   const { addMessage, generateMessage } = useMessages()
 
@@ -77,40 +72,29 @@ export default function MessageInput() {
   }, [activeSession])
 
   return (
-    <div className={`grid gap-3 grid-flow-col grid-cols-[1fr_auto] md:grid-cols-[1fr_auto_auto] py-[calc((var(--footer-height)-40px)/2)] px-5 md:px-6 xl:px-8 bg-white dark:bg-redax items-end shadow-[0_-1px_0_0] shadow-neutral-200/80 dark:shadow-redax-lighter md:shadow-none`}>
-      <div className='grid items-center min-h-[40px] py-2 px-4 bg-white dark:bg-redax-lighter shadow-[inset_0_0_0_1px] shadow-neutral-300 dark:shadow-redax-light rounded-[20px]'>
-        <div className='grid gap-3 grid-cols-[auto_1fr] items-center'>
-          <ChatBubbleLeftIcon className='hidden md:grid mt-0.5 self-start w-5 h-5 text-neutral-400' />
-          <TextareaAutosize
-            ref={textareaRef}
-            autoFocus
-            onKeyDown={handleEnterPress}
-            rows={1}
-            value={newMessage}
-            onChange={(event: { currentTarget: { value: string } }) => handleMessageChange(event.currentTarget.value)}
-            placeholder='Send a message'
-            className='grid w-full resize-none text-[16px] md:text-[15px] bg-transparent font-medium text-mulberry-dark tracking-tight dark:text-neutral-300 placeholder:text-neutral-400 placeholder: appearance-none outline-none overflow-y-hidden'>
-          </TextareaAutosize>
+    <div className='grid px-2.5 md:px-3 xl:px-4 md:pb-[calc(var(--footer-height)/2)] bg-white'>
+      <div className='grid py-0 pb-6 lg:pb-3 content-start w-full px-5 sm:px-8 md:px-12 lg:px-16 xl:px-32 bg-white dark:bg-redax'>
+        <div className='grid items-center py-2.5 px-4 md:px-3 xl:px-4 drop-shadow-sm bg-white dark:bg-redax-lighter shadow-[inset_0_0_0_1px] shadow-neutral-300 dark:shadow-redax-light rounded-[20px]'>
+          <div className='grid gap-3 grid-flow-col grid-cols-[1fr_auto] items-end'>
+            <TextareaAutosize
+              ref={textareaRef}
+              autoFocus
+              onKeyDown={handleEnterPress}
+              rows={1}
+              value={newMessage}
+              onChange={(event: { currentTarget: { value: string } }) => handleMessageChange(event.currentTarget.value)}
+              placeholder='Send a message'
+              className='grid w-full resize-none pb-2 text-[16px] md:text-[17px] bg-transparent font-normal text-mulberry-dark dark:text-neutral-300 placeholder:text-neutral-400 placeholder: appearance-none outline-none overflow-y-hidden'>
+            </TextareaAutosize>
+            <Overlay overlayType='popup' title='ChatGPT configuration' content={<Config />}>
+              <Button
+                icon={<BeakerIcon />}
+                text='Config'
+              />
+            </Overlay>
+          </div>
         </div>
-      </div>
-      {/* <div className='grid'>
-          <Button 
-              icon={privacy ? <LockClosedIcon /> : <LockOpenIcon />} 
-              text={privacy ? 'Privacy On' : 'Privacy Off'}
-              onClick={() => dispatch(privacy ? setPrivacy(false) : setPrivacy(true))}
-              customClass={`${!privacy ? 'bg-red-100 text-red-400 dark:text-red-400' : ''}`}
-          />    
-        </div> */}
-      <div className='grid'>
-        <Overlay overlayType='popup' title='ChatGPT configuration' content={<Config />}>
-          <Button
-            icon={<BeakerIcon />}
-            text='Config'
-          />
-        </Overlay>
       </div>
     </div>
   )
-
-  return null
 }

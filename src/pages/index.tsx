@@ -7,6 +7,7 @@ import MessageList from "@/components/message-list";
 import Header from "@/components/header";
 import MessagesHeader from "@/components/messages-header";
 import SideMenu from "@/components/sidemenu";
+import FloatingInput from "@/components/floating-input";
 
 export default function HomePage() {
   return (
@@ -27,8 +28,9 @@ export default function HomePage() {
               <MessageList />
             </div>
           </div>
-          <div className="grid sticky bottom-0 bg-blue-25">
-            <MessagesFooter />
+          <div className="grid sticky bottom-0">
+            <FloatingInput />
+            {/* <MessagesFooter /> */}
           </div>
         </div>
       </div>

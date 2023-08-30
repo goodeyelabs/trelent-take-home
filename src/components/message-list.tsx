@@ -31,7 +31,7 @@ export default function MessageList() {
 
   if (list[activeSession]) {
     return (
-      <div className='grid py-0 pb-6 lg:pb-3 items-start content-start w-full px-5 sm:px-8 md:px-12 lg:px-16 xl:px-32 bg-white dark:bg-redax'>
+      <div className='grid py-0 pb-6 lg:pb-6 items-start content-start w-full px-5 sm:px-8 md:px-12 lg:px-16 xl:px-32 bg-white dark:bg-redax'>
         {
           messages.map((m: any, m_idx: number) => {
             if (m.role === 'assistant' && m.content !== generatedMessage) {
